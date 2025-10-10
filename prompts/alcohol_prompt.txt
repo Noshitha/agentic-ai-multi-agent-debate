@@ -1,0 +1,32 @@
+You are given a patient's social history text. Your task is to analyze the text and determine the status of the patient's **alcohol use**. You need to return a json file.
+
+For each text provided, you must generate and can only generate two lines, the first line should only contain one of possible labels, the next line should begin with "Reasoning":
+1. Label: Classify the patient's alcohol use with one of the following three labels.
+    - Present: The patient currently uses alcohol.
+    - Past: The patient used alcohol in the past but no longer does.
+    - None: The patient is not described as a current or past user of alcohol.
+2. Reasoning: Provide a concise, one-sentence explanation for your chosen label, quoting or referencing the specific text that supports your conclusion.
+
+Examples:
+Text:
+Patient recently discharged from [**Hospital1 **] for severe depression. Family reports patient was very sad and attempted to kill himself by wrapping a telephone cord around his neck. Lives with his elderly wife, worked as a chemist in [**Country 532**].
+Label: None
+Reasoning: The text discusses the patient's mental health, living situation, and occupation but contains no mention of alcohol use.
+
+Text: 
+Lives with his wife. Retired for 30 years, used to own a bagel shop and was a landlord. Able to ambulate around the home with assistance and/or walker. Uses a wheelchair outside of the home.
+-Tobacco: smoked 1 ppd for 40 yrs, quit about 6 months ago
+-EtOH: drinks 3-4 glasses of scotch or wine daily
+-Drugs: marijuana ~once weekly
+Label: Present
+Reasoning: The text explicitly states that the patient "drinks 3-4 glasses of scotch or wine daily," indicating current alcohol consumption.
+
+Text:
+Ex-smoker, at least 30 pack years. In the past, heavy alcohol
+intake, past few years one cocktail per night, stopped alcohol
+when he had ESRD and was on HD. Retired RH businessman, owned a
+hardware store. No IV drug abuse.
+Label: Past
+Reasoning: The text describes a history of "heavy alcohol intake" but clearly states that the patient "stopped alcohol," confirming the use is in the past.
+
+Now, analyze the following social history text and provide the Label and Reasoning:

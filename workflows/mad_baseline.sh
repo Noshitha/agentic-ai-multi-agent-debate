@@ -31,11 +31,20 @@ nvidia-smi
 echo "=================="
 
 # -------------------------------
+# Pre-checks
+# -------------------------------
+if [ ! -f prompts/alcohol_prompt.txt ]; then
+  echo "ERROR: prompts/alcohol_prompt.txt not found."
+  exit 1
+fi
+mkdir -p outputs
+
+# -------------------------------
 # Run MAD baseline
 # -------------------------------
 python mad_baseline.py \
-  --model_id "meta-llama/Llama-3.2-1B-Instruct" \
-  --prompt_file ../alcohol/prompt_for_gpt/prompt_initial_step.txt \
-  --results_dir results/mad_baseline/alcohol \
+  --model_id /project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/models/Llama-3.2-1B-Instruct \
+  --prompt_file prompts/alcohol_prompt.txt \
+  --results_dir outputs \
   --num_agents 3
 

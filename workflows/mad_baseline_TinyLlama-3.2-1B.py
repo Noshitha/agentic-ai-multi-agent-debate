@@ -42,6 +42,13 @@ def extract_label(text):
     first_line = text.strip().split("\n")[0]
     return first_line
 
+import re
+
+def extract_label(text):
+    match = re.search(r"Label:\s*(Present|Past|None)", text, re.IGNORECASE)
+    if match:
+        return match.group(1).capitalize()
+    return "UNKNOWN"
 
 def majority_vote(predictions):
     """Aggregate predictions using majority vote."""

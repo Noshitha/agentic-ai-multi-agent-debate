@@ -1,11 +1,11 @@
 #!/bin/bash
-#SBATCH --job-name=qwen_l40s
+#SBATCH --job-name=qwen_all_versions_a100
 #SBATCH --partition=gpu
-#SBATCH --gres=gpu:l40s:1
+#SBATCH --gres=gpu:a100:1
 #SBATCH --cpus-per-task=6
-#SBATCH --mem=32G
-#SBATCH --time=08:00:00
-#SBATCH --output=logs/qwen_a100_Qwen3-4B.out
+#SBATCH --mem=64G
+#SBATCH --time=10:00:00
+#SBATCH --output=logs/qwen_a100_%j.out
 # -------------------------------
 # ENVIRONMENT SETUP
 # -------------------------------
@@ -16,7 +16,7 @@ echo "==== JOB INFO ===="
 echo "Job ID: $SLURM_JOB_ID"
 echo "Running on node: $SLURM_NODELIST"
 echo "Allocated GPUs (before export): $CUDA_VISIBLE_DEVICES"
-echo "Model Path: /project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/models/Qwen3-4B"
+echo "Model Path: /project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/models/Qwen3-0.6B"
 echo "Current working dir: $(pwd)"
 echo "=================="
 
@@ -51,11 +51,11 @@ if torch.cuda.is_available():
 print("=============================\n")
 EOF
 
-# -------------------------------
-# RUN BASELINE SCRIPT
-# -------------------------------
-python workflows/baseline_qwen_single_Agent.py \
-  --model_path /project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/models/Qwen3-4B \
-  --train_path /project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/dataset/alcohol/train.jsonl \
-  --test_path /project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/dataset/alcohol/test.jsonl \
-  --results_dir outputs/Qwen3-4B-evals
+for MODEL in Qwen3_1.7B Qwen3_4B medgemma3-4b MediPhi-Instruct; do
+  echo "Running evaluation for $MODEL..."
+  python workflows/baseline_qwen_single_Agent.py \
+    --model_path /project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/models/$MODEL \
+    --train_path /project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/dataset/alcohol/train.jsonl \
+    --test_path /project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/dataset/alcohol/test.jsonl \
+    --results_dir outputs/$MODEL\_eval
+done

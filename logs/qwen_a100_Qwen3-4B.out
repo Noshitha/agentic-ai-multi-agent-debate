@@ -1,27 +1,28 @@
 Loading cuda version 12.1
 ==== JOB INFO ====
-Job ID: 45172942
-Running on node: gypsum-gpu096
-Allocated GPUs: 0
-Model Path: /project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/models/Qwen3-0.6B
+Job ID: 46179577
+Running on node: gpu026
+Allocated GPUs (before export): 0
+Model Path: /project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/models/Qwen3-4B
 Current working dir: /project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/sdoh-mad-baselines
 ==================
+CUDA_VISIBLE_DEVICES (after export): 0
 ==== ENV INFO ====
 Python 3.12.3
 Name: torch
-Version: 2.2.2
+Version: 2.2.2+cu121
 Name: transformers
 Version: 4.57.0
-Tue Oct  7 13:41:41 2025       
+Sun Oct 12 18:10:09 2025       
 +-----------------------------------------------------------------------------------------+
-| NVIDIA-SMI 570.169                Driver Version: 570.169        CUDA Version: 12.8     |
+| NVIDIA-SMI 570.158.01             Driver Version: 570.158.01     CUDA Version: 12.8     |
 |-----------------------------------------+------------------------+----------------------+
 | GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
 | Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
 |                                         |                        |               MIG M. |
 |=========================================+========================+======================|
-|   0  NVIDIA GeForce GTX TITAN X     On  |   00000000:02:00.0 Off |                  N/A |
-| 22%   37C    P8             17W /  250W |       2MiB /  12288MiB |      0%      Default |
+|   0  NVIDIA L40S                    On  |   00000000:4A:00.0 Off |                    0 |
+| N/A   27C    P8             32W /  350W |       0MiB /  46068MiB |      0%      Default |
 |                                         |                        |                  N/A |
 +-----------------------------------------+------------------------+----------------------+
                                                                                          
@@ -33,4 +34,11 @@ Tue Oct  7 13:41:41 2025
 |  No running processes found                                                             |
 +-----------------------------------------------------------------------------------------+
 ==================
-python: can't open file '/project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/sdoh-mad-baselines/mad_baseline.py': [Errno 2] No such file or directory
+
+==== PYTORCH CUDA CHECK ====
+CUDA available: True
+CUDA device count: 1
+Current device index: 0
+Device name: NVIDIA L40S
+=============================
+

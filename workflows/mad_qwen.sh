@@ -1,11 +1,13 @@
 #!/bin/bash
-#SBATCH --job-name=qwen_l40s
+#SBATCH --job-name=MediPhi-Instruct
 #SBATCH --partition=gpu
-#SBATCH --gres=gpu:l40s:1
+#SBATCH --constraint="a100|l40s|a40|rtx_8000"     # pick any of these free GPU types
+#SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=6
-#SBATCH --mem=32G
+#SBATCH --mem=48G
 #SBATCH --time=08:00:00
-#SBATCH --output=logs/qwen_a100_Qwen3-4B.out
+#SBATCH --output=logs/MediPhi-Instruct.out
+
 # -------------------------------
 # ENVIRONMENT SETUP
 # -------------------------------
@@ -16,7 +18,7 @@ echo "==== JOB INFO ===="
 echo "Job ID: $SLURM_JOB_ID"
 echo "Running on node: $SLURM_NODELIST"
 echo "Allocated GPUs (before export): $CUDA_VISIBLE_DEVICES"
-echo "Model Path: /project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/models/Qwen3-4B"
+echo "Model Path: /project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/models/MediPhi-Instruct"
 echo "Current working dir: $(pwd)"
 echo "=================="
 
@@ -55,7 +57,7 @@ EOF
 # RUN BASELINE SCRIPT
 # -------------------------------
 python workflows/baseline_qwen_single_Agent.py \
-  --model_path /project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/models/Qwen3-4B \
+  --model_path /project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/models/MediPhi-Instruct \
   --train_path /project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/dataset/alcohol/train.jsonl \
   --test_path /project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/dataset/alcohol/test.jsonl \
-  --results_dir outputs/Qwen3-4B-evals
+  --results_dir outputs/MediPhi-Instruct-evals

@@ -1,0 +1,43 @@
+Loading cuda version 12.1
+==== JOB INFO ====
+Job ID: 46838821
+Running on node: gypsum-gpu182
+Allocated GPUs (before export): 0
+Current working dir: /project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/sdoh-mad-baselines
+==================
+CUDA_VISIBLE_DEVICES (after export): 0
+==== ENV INFO ====
+Python 3.12.3
+Name: torch
+Version: 2.2.2+cu121
+Name: transformers
+Version: 4.57.0
+Sun Oct 19 00:47:50 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.158.01             Driver Version: 570.158.01     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Quadro RTX 8000                On  |   00000000:1A:00.0 Off |                  Off |
+| 33%   35C    P8             29W /  260W |       1MiB /  49152MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+==================
+
+==== PYTORCH CUDA CHECK ====
+CUDA available: True
+Device count: 1
+Device name: Quadro RTX 8000
+=============================
+
+python: can't open file '/project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/sdoh-mad-baselines/workflows/baseline_grpo_single_agent.py': [Errno 2] No such file or directory

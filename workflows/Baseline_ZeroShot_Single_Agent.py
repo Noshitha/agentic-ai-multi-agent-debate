@@ -63,6 +63,7 @@ def compute_metrics(results):
     labels = ["Present", "Past", "None", "UNKNOWN"]
     confusion = {g: {p: 0 for p in labels} for g in labels}
 
+    # Build confusion matrix
     for r in results:
         g, p = r["gold"], r["predicted"]
         if g not in labels:
@@ -73,22 +74,45 @@ def compute_metrics(results):
 
     total_correct = sum(confusion[g][g] for g in labels)
     total = sum(sum(confusion[g].values()) for g in labels)
-    accuracy = total_correct / total if total else 0
+    accuracy = total_correct / total if total else 0.0
 
-    metrics = {"accuracy": accuracy, "confusion_matrix": confusion}
-
-    # Per-class precision, recall, F1
     per_class = {}
+    precisions, recalls, f1s = [], [], []
+
     for lbl in labels:
         tp = confusion[lbl][lbl]
         fp = sum(confusion[g][lbl] for g in labels if g != lbl)
         fn = sum(confusion[lbl][p] for p in labels if p != lbl)
-        precision = tp / (tp + fp) if (tp + fp) > 0 else 0
-        recall = tp / (tp + fn) if (tp + fn) > 0 else 0
-        f1 = (2 * precision * recall / (precision + recall)) if (precision + recall) > 0 else 0
-        per_class[lbl] = {"precision": precision, "recall": recall, "f1": f1}
 
-    metrics["per_class"] = per_class
+        precision = tp / (tp + fp) if (tp + fp) else 0.0
+        recall    = tp / (tp + fn) if (tp + fn) else 0.0
+        f1        = (2 * precision * recall / (precision + recall)) if (precision + recall) else 0.0
+
+        per_class[lbl] = {
+            "precision": round(precision, 4),
+            "recall": round(recall, 4),
+            "f1": round(f1, 4),
+            "support": sum(confusion[lbl].values())
+        }
+
+        precisions.append(precision)
+        recalls.append(recall)
+        f1s.append(f1)
+
+    macro_precision = sum(precisions) / len(labels)
+    macro_recall    = sum(recalls) / len(labels)
+    macro_f1        = sum(f1s) / len(labels)
+
+    metrics = {
+        "overall": {
+            "accuracy": round(accuracy, 4),
+            "macro_precision": round(macro_precision, 4),
+            "macro_recall": round(macro_recall, 4),
+            "macro_f1": round(macro_f1, 4)
+        },
+        "per_class": per_class,
+        "confusion_matrix": confusion
+    }
     return metrics
 
 
@@ -120,7 +144,7 @@ def evaluate_model(model_path, train_path, test_path, results_dir="outputs/alcoh
         })
 
     metrics = compute_metrics(results)
-    out_path = os.path.join(results_dir, "qwen3_0.6B_test_eval_metrics.json")
+    out_path = os.path.join(results_dir, "eval_metrics.json")
 
     with open(out_path, "w") as f:
         json.dump({
@@ -129,21 +153,30 @@ def evaluate_model(model_path, train_path, test_path, results_dir="outputs/alcoh
             "results": results
         }, f, indent=2)
 
-    # --- Pretty Print ---
-    print("\n Evaluation Complete")
-    print(f"Accuracy: {metrics['accuracy']*100:.2f}%")
-    print("\n Confusion Matrix:")
+    print("\n==== Evaluation Complete ====")
+    print(f"Overall Accuracy       : {metrics['overall']['accuracy']*100:.2f}%")
+    print(f"Macro Precision / Recall / F1 : "
+        f"{metrics['overall']['macro_precision']:.2f} / "
+        f"{metrics['overall']['macro_recall']:.2f} / "
+        f"{metrics['overall']['macro_f1']:.2f}")
+
+    print("\nConfusion Matrix:")
     labels = ["Present", "Past", "None", "UNKNOWN"]
     print(" " * 10 + "\t".join(labels))
     for g in labels:
         row = "\t".join(str(metrics["confusion_matrix"][g][p]) for p in labels)
         print(f"{g:10s}\t{row}")
 
-    print("\n Per-Class Metrics:")
+    print("\nPer-Class Metrics:")
     for lbl, vals in metrics["per_class"].items():
-        print(f"{lbl:10s} | P={vals['precision']:.2f} R={vals['recall']:.2f} F1={vals['f1']:.2f}")
+        print(f"{lbl:10s} | "
+            f"P={vals['precision']:.2f}  "
+            f"R={vals['recall']:.2f}  "
+            f"F1={vals['f1']:.2f}  "
+            f"Support={vals['support']}")
 
     print(f"\nResults saved to {out_path}")
+
 
 
 # ----------------------------

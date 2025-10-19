@@ -1,4 +1,4 @@
-# 🧠 Agentic AI: Exploring Multi-Agent Debate and Training-Free Self-Improvement  
+# Agentic AI: Exploring Multi-Agent Debate and Training-Free Self-Improvement  
 *Analyzing reasoning dynamics and self-reflection strategies in large language models.*
 
 ---
@@ -15,10 +15,10 @@ We explore **Training-Free Group Relative Policy Optimization (GRPO)** as one of
 
 | Concept | Description |
 |----------|-------------|
-| 🗣️ **Multi-Agent Debate** | Multiple agents (LLMs) argue for/against different reasoning paths to reach stable, explainable outcomes. |
-| 🧭 **Training-Free GRPO** | A single-agent variant where the model learns contextually via group-relative feedback, not gradient updates. |
-| 🔍 **Self-Reflection Loops** | The model summarizes its best reasoning and reuses it as "experience memory" for subsequent prompts. |
-| 🧮 **Reward-Based Comparison** | Candidates are scored relative to ground truth or heuristic feedback — simulating reinforcement signals. |
+| **Multi-Agent Debate** | Multiple agents (LLMs) argue for/against different reasoning paths to reach stable, explainable outcomes. |
+| **Training-Free GRPO** | A single-agent variant where the model learns contextually via group-relative feedback, not gradient updates. |
+| **Self-Reflection Loops** | The model summarizes its best reasoning and reuses it as "experience memory" for subsequent prompts. |
+| **Reward-Based Comparison** | Candidates are scored relative to ground truth or heuristic feedback — simulating reinforcement signals. |
 
 ---
 

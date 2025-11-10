@@ -30,41 +30,72 @@ async def main(args):
         print(f"Truncating dataset from {len(data)} to {len(data)//args.batchsize * args.batchsize} for clean batching.")
         data = data[: len(data)//args.batchsize * args.batchsize]
 
+    # === Initialize RAG memory and controller ===
+    memory = RAGMemory()
+    controller = Controller()
 
+    # === Training loop ===
     for epoch in range(args.epochs):
         print(f"\n=== Epoch {epoch} ===")
         random.shuffle(data)
+        # inside main(args):
         for b in range(len(data)//args.batchsize):
             step = epoch*(len(data)//args.batchsize)+b
             step_dir = os.path.join(exp_dir, f"step_{step}")
             os.makedirs(step_dir, exist_ok=True)
             batch = data[b*args.batchsize:(b+1)*args.batchsize]
-            experiences = {}
-            # formatted = [
-            #     {"prompt": format_with_experiences(x["problem"], experiences), **x} for x in batch
-            # ]
-            formatted = [
-                {"prompt": format_with_experiences(x, experiences), **x}
-                for x in batch
-            ]
-            formatted *= args.grpo_n
 
+            # Retrieve experiences only if memory has good samples
+            formatted_batch = []
+            for sample in batch:
+                use_rag = len(memory.memory) > 5
+                retrieved = memory.retrieve(query=sample["instruction"] + " " + sample["text"], k=3) if use_rag else []
+                experiences = {f"exp_{i}": r for i, r in enumerate(retrieved)}
+                formatted_batch.append({
+                    "prompt": format_with_experiences(sample, experiences),
+                    **sample,
+                })
+
+            # Duplicate for multiple rollouts (GRPO)
+            formatted_batch *= args.grpo_n
             rollout_path = os.path.join(step_dir, "rollout.jsonl")
-            rollouts = []
+
+            # Run rollouts for this batch
             rollouts, stats_step = await rollout_dataset(
-                formatted, rollouts, verify_func,
+                formatted_batch,
+                [],
+                verify_func,
                 rollout_filename=rollout_path,
                 model_path=args.model_path,
                 rollout_concurrency=args.rollout_concurrency,
                 temperature=args.temperature,
                 max_tokens=args.max_tokens
             )
+
+            # Compute step-level stats
             stats[f"step_{step}"] = stats_step
             json.dump(stats, open(stats_path, "w"), indent=2)
             print(f"→ Step {step}: avg_reward={stats_step['avg_reward']:.3f}")
 
+            # Pick best candidate across rollouts
+            best_sample = max(rollouts, key=lambda r: r.get("reward", 0))
+            best_text = best_sample.get("response", "")
+            best_reward = best_sample.get("reward", 0)
+
+            # Add high-reward sample to RAG memory
+            if best_reward > 0:
+                memory.add(best_text, best_reward)
+
+            # Controller update
+            decision, args.temperature = controller.update(
+                stats_step['avg_reward'], [best_text]
+            )
+            if decision == "refresh_experiences":
+                print("Controller triggered experience refresh.")
+
+
 if __name__ == "__main__":
-    p = argparse.ArgumentParser("Training-free GRPO")
+    p = argparse.ArgumentParser("Training-free GRPO + RAG Memory")
     p.add_argument("--model_path", type=str, required=True)
     p.add_argument("--dataset", type=str, required=True)
     p.add_argument("--experiment_name", type=str, required=True)

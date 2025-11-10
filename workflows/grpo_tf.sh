@@ -41,5 +41,6 @@ python -m grpo_tf.train \
   --epochs 3 \
   --batchsize 10 \
   --grpo_n 5 \
+  --dataset_truncate 200 \
   --temperature 0.7 \
   --max_tokens 256

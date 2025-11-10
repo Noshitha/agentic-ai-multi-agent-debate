@@ -1,0 +1,272 @@
+{
+  "step_0": {
+    "avg_reward": 0.3
+  },
+  "step_1": {
+    "avg_reward": 0.4
+  },
+  "step_2": {
+    "avg_reward": 0.5
+  },
+  "step_3": {
+    "avg_reward": 0.38
+  },
+  "step_4": {
+    "avg_reward": 0.46
+  },
+  "step_5": {
+    "avg_reward": 0.5
+  },
+  "step_6": {
+    "avg_reward": 0.6
+  },
+  "step_7": {
+    "avg_reward": 0.5
+  },
+  "step_8": {
+    "avg_reward": 0.64
+  },
+  "step_9": {
+    "avg_reward": 0.42
+  },
+  "step_10": {
+    "avg_reward": 0.46
+  },
+  "step_11": {
+    "avg_reward": 0.46
+  },
+  "step_12": {
+    "avg_reward": 0.54
+  },
+  "step_13": {
+    "avg_reward": 0.44
+  },
+  "step_14": {
+    "avg_reward": 0.54
+  },
+  "step_15": {
+    "avg_reward": 0.62
+  },
+  "step_16": {
+    "avg_reward": 0.42
+  },
+  "step_17": {
+    "avg_reward": 0.44
+  },
+  "step_18": {
+    "avg_reward": 0.6
+  },
+  "step_19": {
+    "avg_reward": 0.6
+  },
+  "step_20": {
+    "avg_reward": 0.4
+  },
+  "step_21": {
+    "avg_reward": 0.52
+  },
+  "step_22": {
+    "avg_reward": 0.58
+  },
+  "step_23": {
+    "avg_reward": 0.54
+  },
+  "step_24": {
+    "avg_reward": 0.56
+  },
+  "step_25": {
+    "avg_reward": 0.38
+  },
+  "step_26": {
+    "avg_reward": 0.52
+  },
+  "step_27": {
+    "avg_reward": 0.42
+  },
+  "step_28": {
+    "avg_reward": 0.5
+  },
+  "step_29": {
+    "avg_reward": 0.42
+  },
+  "step_30": {
+    "avg_reward": 0.5
+  },
+  "step_31": {
+    "avg_reward": 0.56
+  },
+  "step_32": {
+    "avg_reward": 0.0
+  },
+  "step_33": {
+    "avg_reward": 0.0
+  },
+  "step_34": {
+    "avg_reward": 0.0
+  },
+  "step_35": {
+    "avg_reward": 0.0
+  },
+  "step_36": {
+    "avg_reward": 0.0
+  },
+  "step_37": {
+    "avg_reward": 0.0
+  },
+  "step_38": {
+    "avg_reward": 0.0
+  },
+  "step_39": {
+    "avg_reward": 0.0
+  },
+  "step_40": {
+    "avg_reward": 0.0
+  },
+  "step_41": {
+    "avg_reward": 0.0
+  },
+  "step_42": {
+    "avg_reward": 0.0
+  },
+  "step_43": {
+    "avg_reward": 0.0
+  },
+  "step_44": {
+    "avg_reward": 0.0
+  },
+  "step_45": {
+    "avg_reward": 0.0
+  },
+  "step_46": {
+    "avg_reward": 0.0
+  },
+  "step_47": {
+    "avg_reward": 0.0
+  },
+  "step_48": {
+    "avg_reward": 0.0
+  },
+  "step_49": {
+    "avg_reward": 0.0
+  },
+  "step_50": {
+    "avg_reward": 0.0
+  },
+  "step_51": {
+    "avg_reward": 0.0
+  },
+  "step_52": {
+    "avg_reward": 0.0
+  },
+  "step_53": {
+    "avg_reward": 0.0
+  },
+  "step_54": {
+    "avg_reward": 0.0
+  },
+  "step_55": {
+    "avg_reward": 0.0
+  },
+  "step_56": {
+    "avg_reward": 0.0
+  },
+  "step_57": {
+    "avg_reward": 0.0
+  },
+  "step_58": {
+    "avg_reward": 0.0
+  },
+  "step_59": {
+    "avg_reward": 0.0
+  },
+  "step_60": {
+    "avg_reward": 0.0
+  },
+  "step_61": {
+    "avg_reward": 0.0
+  },
+  "step_62": {
+    "avg_reward": 0.0
+  },
+  "step_63": {
+    "avg_reward": 0.0
+  },
+  "step_64": {
+    "avg_reward": 0.0
+  },
+  "step_65": {
+    "avg_reward": 0.0
+  },
+  "step_66": {
+    "avg_reward": 0.0
+  },
+  "step_67": {
+    "avg_reward": 0.0
+  },
+  "step_68": {
+    "avg_reward": 0.0
+  },
+  "step_69": {
+    "avg_reward": 0.0
+  },
+  "step_70": {
+    "avg_reward": 0.0
+  },
+  "step_71": {
+    "avg_reward": 0.0
+  },
+  "step_72": {
+    "avg_reward": 0.0
+  },
+  "step_73": {
+    "avg_reward": 0.0
+  },
+  "step_74": {
+    "avg_reward": 0.0
+  },
+  "step_75": {
+    "avg_reward": 0.0
+  },
+  "step_76": {
+    "avg_reward": 0.0
+  },
+  "step_77": {
+    "avg_reward": 0.0
+  },
+  "step_78": {
+    "avg_reward": 0.0
+  },
+  "step_79": {
+    "avg_reward": 0.0
+  },
+  "step_80": {
+    "avg_reward": 0.0
+  },
+  "step_81": {
+    "avg_reward": 0.0
+  },
+  "step_82": {
+    "avg_reward": 0.0
+  },
+  "step_83": {
+    "avg_reward": 0.0
+  },
+  "step_84": {
+    "avg_reward": 0.0
+  },
+  "step_85": {
+    "avg_reward": 0.0
+  },
+  "step_86": {
+    "avg_reward": 0.0
+  },
+  "step_87": {
+    "avg_reward": 0.0
+  },
+  "step_88": {
+    "avg_reward": 0.0
+  },
+  "step_89": {
+    "avg_reward": 0.0
+  }
+}

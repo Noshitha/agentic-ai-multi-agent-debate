@@ -19,14 +19,15 @@ class RAGMemory:
         """Add new experience if reward is good and not duplicate."""
         if reward < self.reward_threshold:
             return  # discard low-quality experiences
-
+        
         # prevent near-duplicates
         if any(text.strip() == m["text"].strip() for m in self.memory):
             return
 
-        emb = self.encoder.encode(text, normalize_embeddings=True)
-        emb = emb / np.linalg.norm(emb, axis=1, keepdims=True)
-
+        # encode first, then normalize
+        emb = self.encoder.encode(text)
+        emb = np.array(emb)
+        emb = emb / np.linalg.norm(emb)
         self.memory.append({"text": text, "embedding": emb, "reward": reward})
 
     def retrieve(self, query: str, k: int = 3):

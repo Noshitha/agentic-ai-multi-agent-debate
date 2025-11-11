@@ -22,4 +22,10 @@ class ZeroShotPolicy:
             **inputs, do_sample=True, top_p=0.9,
             temperature=temperature, max_new_tokens=max_new_tokens
         )
+        output_text = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+        # remove the prompt portion so only new text remains
+        if prompt in output_text:
+            output_text = output_text[len(prompt):].strip()
+        return output_text
+
         return self.tokenizer.decode(outputs[0], skip_special_tokens=True)

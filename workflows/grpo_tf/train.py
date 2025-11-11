@@ -1,3 +1,4 @@
+import pandas as pd
 import argparse, asyncio, os, json, copy, random
 from .dataset import load_data
 from .verify import verify as verify_func
@@ -5,7 +6,7 @@ from .prompts import PROBLEM_WITH_EXPERIENCE
 from .rollout import rollout_dataset
 from .memory import RAGMemory
 from .controller import Controller
-
+from .metrics import compute_metrics
 
 random.seed(42)
 
@@ -71,11 +72,27 @@ async def main(args):
                 temperature=args.temperature,
                 max_tokens=args.max_tokens
             )
+            
+            metrics = compute_metrics(rollouts)
+            stats_step.update(metrics)
 
             # Compute step-level stats
             stats[f"step_{step}"] = stats_step
             json.dump(stats, open(stats_path, "w"), indent=2)
             print(f"→ Step {step}: avg_reward={stats_step['avg_reward']:.3f}")
+
+            # after writing stats.json:
+            csv_path = os.path.join(exp_dir, "metrics.csv")
+            row = {"step": step, **stats_step}
+            # flatten non-scalar entries for CSV (like label lists)
+            row = {k: (",".join(v) if isinstance(v, list) else v) for k, v in row.items()}
+            df = pd.DataFrame([row])
+
+            # append new step to CSV (create if missing)
+            if not os.path.exists(csv_path):
+                df.to_csv(csv_path, index=False)
+            else:
+                df.to_csv(csv_path, mode="a", header=False, index=False)
 
             # Pick best candidate across rollouts
             best_sample = max(rollouts, key=lambda r: r.get("reward", 0))

@@ -38,9 +38,10 @@ python -m grpo_tf.train \
   --model_path /project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/models/Qwen3-0.6B \
   --dataset /project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/dataset/alcohol/test.jsonl \
   --experiment_name alcohol_grpo \
-  --epochs 3 \
-  --batchsize 10 \
+  --epochs 1 \
+  --batchsize 5 \
   --grpo_n 5 \
-  --dataset_truncate 200 \
+  --dataset_truncate 50 \
   --temperature 0.7 \
-  --max_tokens 256
+  --max_tokens 128
+

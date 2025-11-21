@@ -117,7 +117,7 @@ if __name__ == "__main__":
     p.add_argument("--dataset", type=str, required=True)
     p.add_argument("--experiment_name", type=str, required=True)
     p.add_argument("--epochs", type=int, default=2)
-    p.add_argument("--batchsize", type=int, default=16)
+    p.add_argument("--batchsize", type=int, default=10)
     p.add_argument("--grpo_n", type=int, default=5)
     p.add_argument("--dataset_truncate", type=int, default=None)
     p.add_argument("--rollout_concurrency", type=int, default=4)

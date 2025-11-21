@@ -1,0 +1,320 @@
+Loading cuda version 12.1
+==== JOB INFO ====
+Job ID: 48826837
+Running on node: gypsum-gpu155
+Allocated GPUs: 0,1,2,3
+Current working dir: /project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/sdoh-mad-baselines
+==================
+==== ENV INFO ====
+Python 3.12.3
+Name: torch
+Version: 2.2.2+cu121
+Name: transformers
+Version: 4.57.0
+Tue Nov 11 21:43:37 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.169                Driver Version: 570.169        CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce GTX 1080 Ti     On  |   00000000:B1:00.0 Off |                  N/A |
+| 23%   29C    P8              9W /  250W |       3MiB /  11264MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA GeForce GTX 1080 Ti     On  |   00000000:B2:00.0 Off |                  N/A |
+|110%   34C    P8              9W /  250W |       3MiB /  11264MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   2  NVIDIA GeForce GTX 1080 Ti     On  |   00000000:DA:00.0 Off |                  N/A |
+| 23%   31C    P8              8W /  250W |       3MiB /  11264MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   3  NVIDIA GeForce GTX 1080 Ti     On  |   00000000:DB:00.0 Off |                  N/A |
+| 23%   32C    P8              9W /  250W |       3MiB /  11264MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+==================
+2025-11-11 21:44:33.047649: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1762897473.761455 3902670 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1762897473.937782 3902670 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+W0000 00:00:1762897475.394966 3902670 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762897475.395044 3902670 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762897475.395059 3902670 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+W0000 00:00:1762897475.395065 3902670 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
+2025-11-11 21:44:35.549667: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Truncating dataset from 1405 to 1400 for clean batching.
+
+=== Epoch 0 ===
+Rollouts:   0%|          | 0/50 [00:00<?, ?it/s]`torch_dtype` is deprecated! Use `dtype` instead!
+Rollouts:   2%|▏         | 1/50 [03:22<2:45:26, 202.57s/it]Rollouts:   4%|▍         | 2/50 [03:22<1:06:47, 83.49s/it] Rollouts:   6%|▌         | 3/50 [03:23<35:56, 45.89s/it]  Rollouts:   8%|▊         | 4/50 [03:24<21:20, 27.83s/it]Rollouts:  10%|█         | 5/50 [03:24<13:24, 17.89s/it]Rollouts:  14%|█▍        | 7/50 [03:24<06:21,  8.87s/it]Rollouts:  18%|█▊        | 9/50 [05:29<21:27, 31.41s/it]Rollouts:  20%|██        | 10/50 [05:29<16:08, 24.22s/it]Rollouts:  22%|██▏       | 11/50 [05:32<12:12, 18.78s/it]Rollouts:  24%|██▍       | 12/50 [05:32<08:48, 13.92s/it]Rollouts:  28%|██▊       | 14/50 [05:32<04:48,  8.02s/it]Rollouts:  30%|███       | 15/50 [05:32<03:35,  6.17s/it]Rollouts:  32%|███▏      | 16/50 [05:32<02:38,  4.67s/it]Rollouts:  34%|███▍      | 17/50 [07:37<19:57, 36.28s/it]Rollouts:  36%|███▌      | 18/50 [07:37<14:06, 26.45s/it]Rollouts:  38%|███▊      | 19/50 [07:41<10:23, 20.10s/it]Rollouts:  40%|████      | 20/50 [07:42<07:14, 14.47s/it]Rollouts:  42%|████▏     | 21/50 [07:42<04:58, 10.30s/it]Rollouts:  44%|████▍     | 22/50 [07:42<03:24,  7.32s/it]Rollouts:  48%|████▊     | 24/50 [07:42<01:44,  4.02s/it]Rollouts:  50%|█████     | 25/50 [09:44<13:45, 33.01s/it]Rollouts:  52%|█████▏    | 26/50 [09:45<09:50, 24.60s/it]Rollouts:  54%|█████▍    | 27/50 [09:49<07:22, 19.25s/it]Rollouts:  56%|█████▌    | 28/50 [09:50<05:06, 13.94s/it]Rollouts:  58%|█████▊    | 29/50 [09:50<03:31, 10.09s/it]Rollouts:  62%|██████▏   | 31/50 [09:50<01:46,  5.59s/it]Rollouts:  66%|██████▌   | 33/50 [11:53<07:45, 27.41s/it]Rollouts:  68%|██████▊   | 34/50 [11:54<05:44, 21.53s/it]Rollouts:  70%|███████   | 35/50 [12:00<04:28, 17.89s/it]Rollouts:  72%|███████▏  | 36/50 [12:00<03:07, 13.41s/it]Rollouts:  74%|███████▍  | 37/50 [12:00<02:08,  9.92s/it]Rollouts:  78%|███████▊  | 39/50 [12:00<01:02,  5.69s/it]Rollouts:  80%|████████  | 40/50 [12:01<00:43,  4.38s/it]Rollouts:  82%|████████▏ | 41/50 [14:01<05:02, 33.63s/it]Rollouts:  84%|████████▍ | 42/50 [14:02<03:19, 24.89s/it]Rollouts:  86%|████████▌ | 43/50 [14:09<02:20, 20.08s/it]Rollouts:  88%|████████▊ | 44/50 [14:09<01:27, 14.52s/it]Rollouts:  90%|█████████ | 45/50 [14:10<00:52, 10.40s/it]Rollouts:  94%|█████████▍| 47/50 [14:10<00:17,  5.75s/it]Rollouts:  98%|█████████▊| 49/50 [14:28<00:07,  7.02s/it]Rollouts: 100%|██████████| 50/50 [14:28<00:00,  5.54s/it]Rollouts: 100%|██████████| 50/50 [14:28<00:00, 17.37s/it]
+Detected 4 GPUs → ['cuda:0', 'cuda:1', 'cuda:2', 'cuda:3']
+>>> Model loaded on: cuda:0
+>>> Model loaded on: cuda:1
+>>> Model loaded on: cuda:2
+>>> Model loaded on: cuda:3
+[Worker 0] running on cuda:0
+[Worker 1] running on cuda:1
+[Worker 2] running on cuda:2
+[Worker 3] running on cuda:3
+[Worker 4] running on cuda:0
+[Worker 5] running on cuda:1
+[Worker 6] running on cuda:2
+[Worker 7] running on cuda:3
+→ Step 0: avg_reward=0.558
+Rollouts:   0%|          | 0/50 [00:00<?, ?it/s]Rollouts:   2%|▏         | 1/50 [02:14<1:49:36, 134.20s/it]Rollouts:   4%|▍         | 2/50 [02:14<44:28, 55.60s/it]   Rollouts:   6%|▌         | 3/50 [02:15<23:56, 30.56s/it]Rollouts:   8%|▊         | 4/50 [02:15<14:18, 18.66s/it]Rollouts:  12%|█▏        | 6/50 [02:16<06:29,  8.86s/it]Rollouts:  14%|█▍        | 7/50 [02:17<04:46,  6.65s/it]Rollouts:  16%|█▌        | 8/50 [02:17<03:22,  4.82s/it]Rollouts:  18%|█▊        | 9/50 [04:20<26:31, 38.82s/it]Rollouts:  20%|██        | 10/50 [04:21<18:33, 27.83s/it]Rollouts:  22%|██▏       | 11/50 [04:24<13:17, 20.44s/it]Rollouts:  24%|██▍       | 12/50 [04:24<09:14, 14.58s/it]Rollouts:  26%|██▌       | 13/50 [04:25<06:26, 10.44s/it]Rollouts:  28%|██▊       | 14/50 [04:25<04:26,  7.41s/it]Rollouts:  30%|███       | 15/50 [04:26<03:11,  5.48s/it]Rollouts:  32%|███▏      | 16/50 [04:27<02:21,  4.17s/it]Rollouts:  34%|███▍      | 17/50 [06:25<20:54, 38.02s/it]Rollouts:  36%|███▌      | 18/50 [06:26<14:22, 26.95s/it]Rollouts:  38%|███▊      | 19/50 [06:27<10:00, 19.37s/it]Rollouts:  40%|████      | 20/50 [06:28<06:51, 13.72s/it]Rollouts:  42%|████▏     | 21/50 [06:29<04:48,  9.95s/it]Rollouts:  48%|████▊     | 24/50 [06:30<02:00,  4.64s/it]Rollouts:  50%|█████     | 25/50 [08:39<12:48, 30.76s/it]Rollouts:  52%|█████▏    | 26/50 [08:40<09:35, 23.99s/it]Rollouts:  54%|█████▍    | 27/50 [08:44<07:18, 19.07s/it]Rollouts:  56%|█████▌    | 28/50 [08:45<05:11, 14.14s/it]Rollouts:  58%|█████▊    | 29/50 [08:45<03:37, 10.34s/it]Rollouts:  60%|██████    | 30/50 [08:45<02:30,  7.53s/it]Rollouts:  62%|██████▏   | 31/50 [08:46<01:43,  5.47s/it]Rollouts:  64%|██████▍   | 32/50 [08:47<01:16,  4.24s/it]Rollouts:  66%|██████▌   | 33/50 [10:36<09:52, 34.85s/it]Rollouts:  68%|██████▊   | 34/50 [10:37<06:40, 25.05s/it]Rollouts:  70%|███████   | 35/50 [10:44<04:52, 19.52s/it]Rollouts:  72%|███████▏  | 36/50 [10:44<03:14, 13.87s/it]Rollouts:  74%|███████▍  | 37/50 [10:45<02:09,  9.95s/it]Rollouts:  76%|███████▌  | 38/50 [10:46<01:27,  7.29s/it]Rollouts:  78%|███████▊  | 39/50 [10:46<00:57,  5.24s/it]Rollouts:  80%|████████  | 40/50 [10:47<00:37,  3.74s/it]Rollouts:  82%|████████▏ | 41/50 [12:44<05:40, 37.78s/it]Rollouts:  84%|████████▍ | 42/50 [12:46<03:35, 26.99s/it]Rollouts:  86%|████████▌ | 43/50 [12:52<02:25, 20.81s/it]Rollouts:  88%|████████▊ | 44/50 [12:53<01:28, 14.74s/it]Rollouts:  90%|█████████ | 45/50 [12:53<00:52, 10.45s/it]Rollouts:  92%|█████████▏| 46/50 [12:54<00:29,  7.47s/it]Rollouts:  94%|█████████▍| 47/50 [12:54<00:16,  5.41s/it]Rollouts:  96%|█████████▌| 48/50 [12:55<00:07,  3.92s/it]Rollouts:  98%|█████████▊| 49/50 [13:11<00:07,  7.52s/it]Rollouts: 100%|██████████| 50/50 [13:11<00:00,  5.37s/it]Rollouts: 100%|██████████| 50/50 [13:11<00:00, 15.83s/it]
+Detected 4 GPUs → ['cuda:0', 'cuda:1', 'cuda:2', 'cuda:3']
+>>> Model loaded on: cuda:0
+>>> Model loaded on: cuda:1
+>>> Model loaded on: cuda:2
+>>> Model loaded on: cuda:3
+[Worker 0] running on cuda:0
+[Worker 1] running on cuda:1
+[Worker 2] running on cuda:2
+[Worker 3] running on cuda:3
+[Worker 4] running on cuda:0
+[Worker 5] running on cuda:1
+[Worker 6] running on cuda:2
+[Worker 7] running on cuda:3
+→ Step 1: avg_reward=0.588
+Rollouts:   0%|          | 0/50 [00:00<?, ?it/s]Rollouts:   2%|▏         | 1/50 [02:13<1:48:52, 133.31s/it]Rollouts:   4%|▍         | 2/50 [02:13<44:01, 55.04s/it]   Rollouts:   6%|▌         | 3/50 [02:14<23:48, 30.40s/it]Rollouts:   8%|▊         | 4/50 [02:15<14:14, 18.57s/it]Rollouts:  10%|█         | 5/50 [02:15<08:58, 11.96s/it]Rollouts:  14%|█▍        | 7/50 [02:15<04:15,  5.95s/it]Rollouts:  16%|█▌        | 8/50 [02:15<03:07,  4.46s/it]Rollouts:  18%|█▊        | 9/50 [04:19<25:26, 37.24s/it]Rollouts:  20%|██        | 10/50 [04:19<17:53, 26.85s/it]Rollouts:  22%|██▏       | 11/50 [04:22<12:55, 19.88s/it]Rollouts:  24%|██▍       | 12/50 [04:23<09:10, 14.47s/it]Rollouts:  26%|██▌       | 13/50 [04:24<06:21, 10.32s/it]Rollouts:  28%|██▊       | 14/50 [04:24<04:25,  7.38s/it]Rollouts:  30%|███       | 15/50 [04:24<03:06,  5.32s/it]Rollouts:  32%|███▏      | 16/50 [04:25<02:11,  3.85s/it]Rollouts:  34%|███▍      | 17/50 [06:28<21:47, 39.61s/it]Rollouts:  36%|███▌      | 18/50 [06:30<15:00, 28.15s/it]Rollouts:  38%|███▊      | 19/50 [06:33<10:37, 20.58s/it]Rollouts:  40%|████      | 20/50 [06:33<07:20, 14.68s/it]Rollouts:  42%|████▏     | 21/50 [06:34<05:02, 10.42s/it]Rollouts:  44%|████▍     | 22/50 [06:35<03:32,  7.60s/it]Rollouts:  46%|████▌     | 23/50 [06:35<02:27,  5.45s/it]Rollouts:  48%|████▊     | 24/50 [06:36<01:41,  3.92s/it]Rollouts:  50%|█████     | 25/50 [08:34<15:56, 38.26s/it]Rollouts:  52%|█████▏    | 26/50 [08:35<10:52, 27.17s/it]Rollouts:  54%|█████▍    | 27/50 [08:40<07:50, 20.45s/it]Rollouts:  56%|█████▌    | 28/50 [08:40<05:15, 14.36s/it]Rollouts:  58%|█████▊    | 29/50 [08:41<03:38, 10.40s/it]Rollouts:  60%|██████    | 30/50 [08:42<02:30,  7.55s/it]Rollouts:  62%|██████▏   | 31/50 [08:42<01:41,  5.32s/it]Rollouts:  64%|██████▍   | 32/50 [08:43<01:09,  3.85s/it]Rollouts:  66%|██████▌   | 33/50 [10:43<10:59, 38.77s/it]Rollouts:  68%|██████▊   | 34/50 [10:44<07:20, 27.51s/it]Rollouts:  70%|███████   | 35/50 [10:51<05:16, 21.11s/it]Rollouts:  72%|███████▏  | 36/50 [10:51<03:27, 14.81s/it]Rollouts:  74%|███████▍  | 37/50 [10:52<02:18, 10.64s/it]Rollouts:  76%|███████▌  | 38/50 [10:53<01:34,  7.86s/it]Rollouts:  78%|███████▊  | 39/50 [10:53<01:01,  5.58s/it]Rollouts:  80%|████████  | 40/50 [10:53<00:39,  3.96s/it]Rollouts:  82%|████████▏ | 41/50 [12:51<05:42, 38.10s/it]Rollouts:  84%|████████▍ | 42/50 [12:52<03:35, 26.96s/it]Rollouts:  86%|████████▌ | 43/50 [12:58<02:25, 20.77s/it]Rollouts:  88%|████████▊ | 44/50 [12:59<01:28, 14.73s/it]Rollouts:  90%|█████████ | 45/50 [12:59<00:52, 10.40s/it]Rollouts:  92%|█████████▏| 46/50 [13:00<00:30,  7.61s/it]Rollouts:  94%|█████████▍| 47/50 [13:01<00:16,  5.39s/it]Rollouts:  96%|█████████▌| 48/50 [13:01<00:07,  3.88s/it]Rollouts:  98%|█████████▊| 49/50 [13:18<00:07,  7.71s/it]Rollouts: 100%|██████████| 50/50 [13:18<00:00, 15.97s/it]
+Detected 4 GPUs → ['cuda:0', 'cuda:1', 'cuda:2', 'cuda:3']
+>>> Model loaded on: cuda:0
+>>> Model loaded on: cuda:1
+>>> Model loaded on: cuda:2
+>>> Model loaded on: cuda:3
+[Worker 0] running on cuda:0
+[Worker 1] running on cuda:1
+[Worker 2] running on cuda:2
+[Worker 3] running on cuda:3
+[Worker 4] running on cuda:0
+[Worker 5] running on cuda:1
+[Worker 6] running on cuda:2
+[Worker 7] running on cuda:3
+→ Step 2: avg_reward=0.702
+Rollouts:   0%|          | 0/50 [00:00<?, ?it/s]Rollouts:   2%|▏         | 1/50 [02:09<1:46:03, 129.87s/it]Rollouts:   4%|▍         | 2/50 [02:10<42:54, 53.64s/it]   Rollouts:   6%|▌         | 3/50 [02:10<23:00, 29.37s/it]Rollouts:   8%|▊         | 4/50 [02:11<13:45, 17.94s/it]Rollouts:  10%|█         | 5/50 [02:11<08:42, 11.61s/it]Rollouts:  12%|█▏        | 6/50 [02:11<05:43,  7.81s/it]Rollouts:  14%|█▍        | 7/50 [02:12<03:50,  5.35s/it]Rollouts:  18%|█▊        | 9/50 [04:22<23:25, 34.27s/it]Rollouts:  20%|██        | 10/50 [04:22<17:02, 25.57s/it]Rollouts:  22%|██▏       | 11/50 [04:24<12:25, 19.11s/it]Rollouts:  24%|██▍       | 12/50 [04:25<08:58, 14.17s/it]Rollouts:  26%|██▌       | 13/50 [04:27<06:29, 10.52s/it]Rollouts:  28%|██▊       | 14/50 [04:27<04:35,  7.66s/it]Rollouts:  30%|███       | 15/50 [04:27<03:12,  5.49s/it]Rollouts:  32%|███▏      | 16/50 [04:28<02:15,  4.00s/it]Rollouts:  34%|███▍      | 17/50 [06:20<19:45, 35.93s/it]Rollouts:  36%|███▌      | 18/50 [06:20<13:30, 25.34s/it]Rollouts:  38%|███▊      | 19/50 [06:23<09:38, 18.68s/it]Rollouts:  40%|████      | 20/50 [06:24<06:46, 13.56s/it]Rollouts:  42%|████▏     | 21/50 [06:26<04:45,  9.85s/it]Rollouts:  44%|████▍     | 22/50 [06:26<03:20,  7.16s/it]Rollouts:  46%|████▌     | 23/50 [06:27<02:18,  5.14s/it]Rollouts:  50%|█████     | 25/50 [08:24<12:22, 29.69s/it]Rollouts:  52%|█████▏    | 26/50 [08:24<08:58, 22.43s/it]Rollouts:  54%|█████▍    | 27/50 [08:29<06:50, 17.84s/it]Rollouts:  56%|█████▌    | 28/50 [08:31<04:55, 13.44s/it]Rollouts:  58%|█████▊    | 29/50 [08:32<03:31, 10.06s/it]Rollouts:  60%|██████    | 30/50 [08:32<02:24,  7.23s/it]Rollouts:  62%|██████▏   | 31/50 [08:33<01:40,  5.30s/it]Rollouts:  64%|██████▍   | 32/50 [08:33<01:08,  3.83s/it]Rollouts:  66%|██████▌   | 33/50 [10:31<10:36, 37.43s/it]Rollouts:  68%|██████▊   | 34/50 [10:31<07:03, 26.45s/it]Rollouts:  70%|███████   | 35/50 [10:38<05:09, 20.63s/it]Rollouts:  72%|███████▏  | 36/50 [10:39<03:26, 14.78s/it]Rollouts:  74%|███████▍  | 37/50 [10:40<02:19, 10.75s/it]Rollouts:  76%|███████▌  | 38/50 [10:41<01:31,  7.60s/it]Rollouts:  78%|███████▊  | 39/50 [10:41<01:00,  5.46s/it]Rollouts:  80%|████████  | 40/50 [10:41<00:39,  3.94s/it]Rollouts:  82%|████████▏ | 41/50 [12:38<05:38, 37.59s/it]Rollouts:  84%|████████▍ | 42/50 [12:38<03:31, 26.43s/it]Rollouts:  86%|████████▌ | 43/50 [12:45<02:25, 20.73s/it]Rollouts:  88%|████████▊ | 44/50 [12:46<01:28, 14.77s/it]Rollouts:  90%|█████████ | 45/50 [12:47<00:52, 10.52s/it]Rollouts:  92%|█████████▏| 46/50 [12:47<00:30,  7.51s/it]Rollouts:  94%|█████████▍| 47/50 [12:47<00:15,  5.29s/it]Rollouts:  98%|█████████▊| 49/50 [13:04<00:06,  6.69s/it]Rollouts: 100%|██████████| 50/50 [13:04<00:00,  5.06s/it]Rollouts: 100%|██████████| 50/50 [13:04<00:00, 15.69s/it]
+Detected 4 GPUs → ['cuda:0', 'cuda:1', 'cuda:2', 'cuda:3']
+>>> Model loaded on: cuda:0
+>>> Model loaded on: cuda:1
+>>> Model loaded on: cuda:2
+>>> Model loaded on: cuda:3
+[Worker 0] running on cuda:0
+[Worker 1] running on cuda:1
+[Worker 2] running on cuda:2
+[Worker 3] running on cuda:3
+[Worker 4] running on cuda:0
+[Worker 5] running on cuda:1
+[Worker 6] running on cuda:2
+[Worker 7] running on cuda:3
+→ Step 3: avg_reward=0.656
+Rollouts:   0%|          | 0/50 [00:00<?, ?it/s]Rollouts:   2%|▏         | 1/50 [02:15<1:50:49, 135.70s/it]Rollouts:   4%|▍         | 2/50 [02:16<44:57, 56.19s/it]   Rollouts:   6%|▌         | 3/50 [02:16<24:02, 30.69s/it]Rollouts:   8%|▊         | 4/50 [02:16<14:20, 18.70s/it]Rollouts:  10%|█         | 5/50 [02:17<09:06, 12.14s/it]Rollouts:  12%|█▏        | 6/50 [02:17<05:56,  8.10s/it]Rollouts:  14%|█▍        | 7/50 [02:17<03:58,  5.54s/it]Rollouts:  16%|█▌        | 8/50 [02:18<02:43,  3.88s/it]Rollouts:  18%|█▊        | 9/50 [04:20<27:52, 40.78s/it]Rollouts:  20%|██        | 10/50 [04:20<18:52, 28.31s/it]Rollouts:  22%|██▏       | 11/50 [04:21<13:02, 20.05s/it]Rollouts:  24%|██▍       | 12/50 [04:22<08:58, 14.16s/it]Rollouts:  26%|██▌       | 13/50 [04:23<06:17, 10.20s/it]Rollouts:  28%|██▊       | 14/50 [04:24<04:21,  7.26s/it]Rollouts:  30%|███       | 15/50 [04:25<03:09,  5.41s/it]Rollouts:  32%|███▏      | 16/50 [04:25<02:11,  3.88s/it]Rollouts:  34%|███▍      | 17/50 [06:27<21:41, 39.43s/it]Rollouts:  36%|███▌      | 18/50 [06:28<14:47, 27.73s/it]Rollouts:  38%|███▊      | 19/50 [06:30<10:20, 20.03s/it]Rollouts:  40%|████      | 20/50 [06:31<07:09, 14.31s/it]Rollouts:  42%|████▏     | 21/50 [06:32<04:58, 10.28s/it]Rollouts:  44%|████▍     | 22/50 [06:32<03:25,  7.32s/it]Rollouts:  46%|████▌     | 23/50 [06:34<02:30,  5.56s/it]Rollouts:  48%|████▊     | 24/50 [06:34<01:44,  4.00s/it]Rollouts:  50%|█████     | 25/50 [08:34<16:08, 38.75s/it]Rollouts:  52%|█████▏    | 26/50 [08:34<10:55, 27.32s/it]Rollouts:  54%|█████▍    | 27/50 [08:38<07:46, 20.29s/it]Rollouts:  56%|█████▌    | 28/50 [08:39<05:19, 14.52s/it]Rollouts:  58%|█████▊    | 29/50 [08:40<03:37, 10.37s/it]Rollouts:  60%|██████    | 30/50 [08:41<02:29,  7.46s/it]Rollouts:  62%|██████▏   | 31/50 [08:43<01:51,  5.86s/it]Rollouts:  64%|██████▍   | 32/50 [08:43<01:15,  4.18s/it]Rollouts:  66%|██████▌   | 33/50 [10:47<11:23, 40.22s/it]Rollouts:  68%|██████▊   | 34/50 [10:48<07:35, 28.48s/it]Rollouts:  70%|███████   | 35/50 [10:53<05:18, 21.21s/it]Rollouts:  72%|███████▏  | 36/50 [10:54<03:32, 15.18s/it]Rollouts:  74%|███████▍  | 37/50 [10:54<02:18, 10.68s/it]Rollouts:  76%|███████▌  | 38/50 [10:55<01:32,  7.70s/it]Rollouts:  78%|███████▊  | 39/50 [10:56<01:03,  5.78s/it]Rollouts:  80%|████████  | 40/50 [10:57<00:42,  4.23s/it]Rollouts:  82%|████████▏ | 41/50 [12:59<05:56, 39.64s/it]Rollouts:  84%|████████▍ | 42/50 [13:00<03:45, 28.16s/it]Rollouts:  86%|████████▌ | 43/50 [13:07<02:31, 21.65s/it]Rollouts:  88%|████████▊ | 44/50 [13:08<01:32, 15.44s/it]Rollouts:  90%|█████████ | 45/50 [13:08<00:54, 10.88s/it]Rollouts:  92%|█████████▏| 46/50 [13:08<00:31,  7.76s/it]Rollouts:  94%|█████████▍| 47/50 [13:09<00:16,  5.62s/it]Rollouts:  96%|█████████▌| 48/50 [13:09<00:07,  3.97s/it]Rollouts:  98%|█████████▊| 49/50 [13:26<00:07,  7.72s/it]Rollouts: 100%|██████████| 50/50 [13:26<00:00,  5.67s/it]Rollouts: 100%|██████████| 50/50 [13:26<00:00, 16.14s/it]
+Detected 4 GPUs → ['cuda:0', 'cuda:1', 'cuda:2', 'cuda:3']
+>>> Model loaded on: cuda:0
+>>> Model loaded on: cuda:1
+>>> Model loaded on: cuda:2
+>>> Model loaded on: cuda:3
+[Worker 0] running on cuda:0
+[Worker 1] running on cuda:1
+[Worker 2] running on cuda:2
+[Worker 3] running on cuda:3
+[Worker 4] running on cuda:0
+[Worker 5] running on cuda:1
+[Worker 6] running on cuda:2
+[Worker 7] running on cuda:3
+→ Step 4: avg_reward=0.768
+Rollouts:   0%|          | 0/50 [00:00<?, ?it/s]Rollouts:   2%|▏         | 1/50 [02:04<1:41:57, 124.84s/it]Rollouts:   4%|▍         | 2/50 [02:04<41:11, 51.49s/it]   Rollouts:   6%|▌         | 3/50 [02:06<22:20, 28.52s/it]Rollouts:   8%|▊         | 4/50 [02:06<13:16, 17.31s/it]Rollouts:  12%|█▏        | 6/50 [02:06<06:02,  8.23s/it]Rollouts:  14%|█▍        | 7/50 [02:06<04:18,  6.02s/it]Rollouts:  16%|█▌        | 8/50 [02:07<03:07,  4.46s/it]Rollouts:  18%|█▊        | 9/50 [04:11<26:31, 38.82s/it]Rollouts:  20%|██        | 10/50 [04:11<18:25, 27.64s/it]Rollouts:  22%|██▏       | 11/50 [04:13<13:05, 20.13s/it]Rollouts:  26%|██▌       | 13/50 [04:14<06:48, 11.04s/it]Rollouts:  28%|██▊       | 14/50 [04:14<05:02,  8.40s/it]Rollouts:  30%|███       | 15/50 [04:14<03:40,  6.31s/it]Rollouts:  32%|███▏      | 16/50 [04:15<02:40,  4.73s/it]Rollouts:  34%|███▍      | 17/50 [06:16<20:23, 37.07s/it]Rollouts:  36%|███▌      | 18/50 [06:16<14:15, 26.73s/it]Rollouts:  38%|███▊      | 19/50 [06:20<10:21, 20.06s/it]Rollouts:  40%|████      | 20/50 [06:20<07:08, 14.29s/it]Rollouts:  42%|████▏     | 21/50 [06:21<04:53, 10.11s/it]Rollouts:  46%|████▌     | 23/50 [06:21<02:33,  5.68s/it]Rollouts:  48%|████▊     | 24/50 [06:22<01:55,  4.44s/it]Rollouts:  50%|█████     | 25/50 [08:26<14:46, 35.47s/it]Rollouts:  52%|█████▏    | 26/50 [08:26<10:23, 25.99s/it]Rollouts:  54%|█████▍    | 27/50 [08:31<07:40, 20.03s/it]Rollouts:  56%|█████▌    | 28/50 [08:31<05:16, 14.38s/it]Rollouts:  58%|█████▊    | 29/50 [08:31<03:35, 10.28s/it]Rollouts:  62%|██████▏   | 31/50 [08:31<01:47,  5.66s/it]Rollouts:  64%|██████▍   | 32/50 [08:33<01:22,  4.56s/it]Rollouts:  66%|██████▌   | 33/50 [10:36<10:01, 35.41s/it]Rollouts:  68%|██████▊   | 34/50 [10:37<06:56, 26.03s/it]Rollouts:  70%|███████   | 35/50 [10:42<05:03, 20.22s/it]Rollouts:  72%|███████▏  | 36/50 [10:43<03:25, 14.65s/it]Rollouts:  74%|███████▍  | 37/50 [10:43<02:16, 10.50s/it]Rollouts:  76%|███████▌  | 38/50 [10:43<01:29,  7.49s/it]Rollouts:  78%|███████▊  | 39/50 [10:43<00:58,  5.34s/it]Rollouts:  80%|████████  | 40/50 [10:44<00:38,  3.88s/it]Rollouts:  82%|████████▏ | 41/50 [12:43<05:43, 38.12s/it]Rollouts:  84%|████████▍ | 42/50 [12:44<03:35, 26.95s/it]Rollouts:  86%|████████▌ | 43/50 [12:50<02:26, 20.89s/it]Rollouts:  88%|████████▊ | 44/50 [12:51<01:29, 14.86s/it]Rollouts:  90%|█████████ | 45/50 [12:51<00:52, 10.49s/it]Rollouts:  92%|█████████▏| 46/50 [12:51<00:29,  7.42s/it]Rollouts:  94%|█████████▍| 47/50 [12:52<00:15,  5.24s/it]Rollouts:  96%|█████████▌| 48/50 [12:52<00:07,  3.74s/it]Rollouts:  98%|█████████▊| 49/50 [13:16<00:09,  9.80s/it]Rollouts: 100%|██████████| 50/50 [13:16<00:00,  6.94s/it]Rollouts: 100%|██████████| 50/50 [13:16<00:00, 15.93s/it]
+Detected 4 GPUs → ['cuda:0', 'cuda:1', 'cuda:2', 'cuda:3']
+>>> Model loaded on: cuda:0
+>>> Model loaded on: cuda:1
+>>> Model loaded on: cuda:2
+>>> Model loaded on: cuda:3
+[Worker 0] running on cuda:0
+[Worker 1] running on cuda:1
+[Worker 2] running on cuda:2
+[Worker 3] running on cuda:3
+[Worker 4] running on cuda:0
+[Worker 5] running on cuda:1
+[Worker 6] running on cuda:2
+[Worker 7] running on cuda:3
+→ Step 5: avg_reward=0.660
+Rollouts:   0%|          | 0/50 [00:00<?, ?it/s]Rollouts:   2%|▏         | 1/50 [02:12<1:48:21, 132.69s/it]Rollouts:   4%|▍         | 2/50 [02:12<43:46, 54.71s/it]   Rollouts:   6%|▌         | 3/50 [02:14<23:46, 30.35s/it]Rollouts:   8%|▊         | 4/50 [02:14<14:07, 18.42s/it]Rollouts:  10%|█         | 5/50 [02:14<08:52, 11.83s/it]Rollouts:  12%|█▏        | 6/50 [02:14<05:49,  7.94s/it]Rollouts:  14%|█▍        | 7/50 [02:15<03:51,  5.40s/it]Rollouts:  16%|█▌        | 8/50 [02:15<02:35,  3.71s/it]Rollouts:  18%|█▊        | 9/50 [04:20<28:37, 41.90s/it]Rollouts:  20%|██        | 10/50 [04:21<19:27, 29.20s/it]Rollouts:  22%|██▏       | 11/50 [04:24<13:47, 21.22s/it]Rollouts:  24%|██▍       | 12/50 [04:25<09:23, 14.84s/it]Rollouts:  26%|██▌       | 13/50 [04:25<06:24, 10.40s/it]Rollouts:  28%|██▊       | 14/50 [04:25<04:24,  7.36s/it]Rollouts:  30%|███       | 15/50 [04:25<03:02,  5.20s/it]Rollouts:  32%|███▏      | 16/50 [04:26<02:06,  3.71s/it]Rollouts:  34%|███▍      | 17/50 [06:24<20:58, 38.12s/it]Rollouts:  36%|███▌      | 18/50 [06:24<14:17, 26.79s/it]Rollouts:  38%|███▊      | 19/50 [06:29<10:29, 20.31s/it]Rollouts:  40%|████      | 20/50 [06:30<07:09, 14.33s/it]Rollouts:  42%|████▏     | 21/50 [06:30<04:55, 10.19s/it]Rollouts:  44%|████▍     | 22/50 [06:30<03:20,  7.18s/it]Rollouts:  48%|████▊     | 24/50 [06:31<01:43,  3.98s/it]Rollouts:  50%|█████     | 25/50 [08:38<14:25, 34.62s/it]Rollouts:  52%|█████▏    | 26/50 [08:39<10:14, 25.61s/it]Rollouts:  54%|█████▍    | 27/50 [08:46<07:53, 20.58s/it]Rollouts:  56%|█████▌    | 28/50 [08:47<05:31, 15.06s/it]Rollouts:  58%|█████▊    | 29/50 [08:47<03:47, 10.83s/it]Rollouts:  60%|██████    | 30/50 [08:47<02:36,  7.82s/it]Rollouts:  64%|██████▍   | 32/50 [08:48<01:20,  4.48s/it]Rollouts:  66%|██████▌   | 33/50 [10:36<08:25, 29.72s/it]Rollouts:  68%|██████▊   | 34/50 [10:37<05:55, 22.24s/it]Rollouts:  70%|███████   | 35/50 [10:45<04:36, 18.45s/it]Rollouts:  72%|███████▏  | 36/50 [10:46<03:09, 13.51s/it]Rollouts:  74%|███████▍  | 37/50 [10:46<02:06,  9.70s/it]Rollouts:  76%|███████▌  | 38/50 [10:46<01:24,  7.07s/it]Rollouts:  78%|███████▊  | 39/50 [10:46<00:55,  5.03s/it]Rollouts:  80%|████████  | 40/50 [10:48<00:38,  3.90s/it]Rollouts:  82%|████████▏ | 41/50 [12:45<05:37, 37.45s/it]Rollouts:  84%|████████▍ | 42/50 [12:46<03:33, 26.71s/it]Rollouts:  86%|████████▌ | 43/50 [12:57<02:32, 21.86s/it]Rollouts:  88%|████████▊ | 44/50 [12:57<01:32, 15.39s/it]Rollouts:  90%|█████████ | 45/50 [12:57<00:54, 10.92s/it]Rollouts:  92%|█████████▏| 46/50 [12:58<00:30,  7.73s/it]Rollouts:  94%|█████████▍| 47/50 [12:58<00:16,  5.53s/it]Rollouts:  96%|█████████▌| 48/50 [12:58<00:07,  3.94s/it]Rollouts:  98%|█████████▊| 49/50 [13:30<00:12, 12.25s/it]Rollouts: 100%|██████████| 50/50 [13:30<00:00,  8.68s/it]Rollouts: 100%|██████████| 50/50 [13:30<00:00, 16.21s/it]
+Detected 4 GPUs → ['cuda:0', 'cuda:1', 'cuda:2', 'cuda:3']
+>>> Model loaded on: cuda:0
+>>> Model loaded on: cuda:1
+>>> Model loaded on: cuda:2
+>>> Model loaded on: cuda:3
+[Worker 0] running on cuda:0
+[Worker 1] running on cuda:1
+[Worker 2] running on cuda:2
+[Worker 3] running on cuda:3
+[Worker 4] running on cuda:0
+[Worker 5] running on cuda:1
+[Worker 6] running on cuda:2
+[Worker 7] running on cuda:3
+→ Step 6: avg_reward=0.824
+Rollouts:   0%|          | 0/50 [00:00<?, ?it/s]Rollouts:   2%|▏         | 1/50 [02:15<1:50:45, 135.63s/it]Rollouts:   4%|▍         | 2/50 [02:16<45:02, 56.30s/it]   Rollouts:   6%|▌         | 3/50 [02:16<24:10, 30.86s/it]Rollouts:   8%|▊         | 4/50 [02:17<14:21, 18.73s/it]Rollouts:  12%|█▏        | 6/50 [02:17<06:28,  8.83s/it]Rollouts:  14%|█▍        | 7/50 [02:17<04:38,  6.48s/it]Rollouts:  16%|█▌        | 8/50 [02:17<03:17,  4.70s/it]Rollouts:  18%|█▊        | 9/50 [04:20<26:23, 38.63s/it]Rollouts:  20%|██        | 10/50 [04:20<18:17, 27.44s/it]Rollouts:  22%|██▏       | 11/50 [04:24<13:23, 20.60s/it]Rollouts:  24%|██▍       | 12/50 [04:25<09:13, 14.56s/it]Rollouts:  26%|██▌       | 13/50 [04:25<06:20, 10.27s/it]Rollouts:  28%|██▊       | 14/50 [04:25<04:26,  7.39s/it]Rollouts:  30%|███       | 15/50 [04:25<03:03,  5.23s/it]Rollouts:  32%|███▏      | 16/50 [04:26<02:05,  3.71s/it]Rollouts:  34%|███▍      | 17/50 [06:28<21:37, 39.30s/it]Rollouts:  36%|███▌      | 18/50 [06:29<14:44, 27.65s/it]Rollouts:  38%|███▊      | 19/50 [06:32<10:36, 20.52s/it]Rollouts:  40%|████      | 20/50 [06:34<07:24, 14.82s/it]Rollouts:  44%|████▍     | 22/50 [06:35<03:47,  8.14s/it]Rollouts:  46%|████▌     | 23/50 [06:35<02:45,  6.15s/it]Rollouts:  48%|████▊     | 24/50 [06:35<01:59,  4.61s/it]Rollouts:  50%|█████     | 25/50 [08:38<15:18, 36.72s/it]Rollouts:  52%|█████▏    | 26/50 [08:39<10:44, 26.84s/it]Rollouts:  54%|█████▍    | 27/50 [08:44<07:51, 20.49s/it]Rollouts:  56%|█████▌    | 28/50 [08:46<05:32, 15.12s/it]Rollouts:  58%|█████▊    | 29/50 [08:46<03:45, 10.75s/it]Rollouts:  60%|██████    | 30/50 [08:46<02:34,  7.73s/it]Rollouts:  62%|██████▏   | 31/50 [08:46<01:44,  5.48s/it]Rollouts:  64%|██████▍   | 32/50 [08:47<01:13,  4.06s/it]Rollouts:  66%|██████▌   | 33/50 [10:42<10:28, 36.97s/it]Rollouts:  68%|██████▊   | 34/50 [10:44<07:05, 26.57s/it]Rollouts:  70%|███████   | 35/50 [10:48<05:00, 20.01s/it]Rollouts:  72%|███████▏  | 36/50 [10:50<03:21, 14.38s/it]Rollouts:  74%|███████▍  | 37/50 [10:50<02:13, 10.27s/it]Rollouts:  76%|███████▌  | 38/50 [10:51<01:27,  7.28s/it]Rollouts:  78%|███████▊  | 39/50 [10:51<00:57,  5.24s/it]Rollouts:  80%|████████  | 40/50 [10:51<00:37,  3.73s/it]Rollouts:  82%|████████▏ | 41/50 [12:51<05:45, 38.43s/it]Rollouts:  84%|████████▍ | 42/50 [12:54<03:42, 27.83s/it]Rollouts:  86%|████████▌ | 43/50 [13:01<02:30, 21.51s/it]Rollouts:  88%|████████▊ | 44/50 [13:02<01:32, 15.45s/it]Rollouts:  90%|█████████ | 45/50 [13:02<00:54, 10.93s/it]Rollouts:  92%|█████████▏| 46/50 [13:02<00:30,  7.72s/it]Rollouts:  94%|█████████▍| 47/50 [13:03<00:16,  5.46s/it]Rollouts:  96%|█████████▌| 48/50 [13:03<00:07,  3.97s/it]Rollouts:  98%|█████████▊| 49/50 [13:36<00:12, 12.57s/it]Rollouts: 100%|██████████| 50/50 [13:36<00:00,  8.95s/it]Rollouts: 100%|██████████| 50/50 [13:36<00:00, 16.33s/it]
+Detected 4 GPUs → ['cuda:0', 'cuda:1', 'cuda:2', 'cuda:3']
+>>> Model loaded on: cuda:0
+>>> Model loaded on: cuda:1
+>>> Model loaded on: cuda:2
+>>> Model loaded on: cuda:3
+[Worker 0] running on cuda:0
+[Worker 1] running on cuda:1
+[Worker 2] running on cuda:2
+[Worker 3] running on cuda:3
+[Worker 4] running on cuda:0
+[Worker 5] running on cuda:1
+[Worker 6] running on cuda:2
+[Worker 7] running on cuda:3
+→ Step 7: avg_reward=0.672
+Rollouts:   0%|          | 0/50 [00:00<?, ?it/s]Rollouts:   2%|▏         | 1/50 [02:16<1:51:38, 136.70s/it]Rollouts:   4%|▍         | 2/50 [02:17<45:10, 56.47s/it]   Rollouts:   6%|▌         | 3/50 [02:17<24:09, 30.83s/it]Rollouts:   8%|▊         | 4/50 [02:17<14:24, 18.80s/it]Rollouts:  10%|█         | 5/50 [02:17<09:03, 12.07s/it]Rollouts:  12%|█▏        | 6/50 [02:17<05:52,  8.02s/it]Rollouts:  14%|█▍        | 7/50 [02:18<03:54,  5.46s/it]Rollouts:  16%|█▌        | 8/50 [02:18<02:40,  3.83s/it]Rollouts:  18%|█▊        | 9/50 [04:23<28:30, 41.71s/it]Rollouts:  20%|██        | 10/50 [04:26<19:45, 29.64s/it]Rollouts:  22%|██▏       | 11/50 [04:26<13:25, 20.66s/it]Rollouts:  24%|██▍       | 12/50 [04:26<09:11, 14.50s/it]Rollouts:  26%|██▌       | 13/50 [04:26<06:15, 10.15s/it]Rollouts:  28%|██▊       | 14/50 [04:27<04:17,  7.14s/it]Rollouts:  30%|███       | 15/50 [04:27<02:56,  5.04s/it]Rollouts:  32%|███▏      | 16/50 [04:27<02:01,  3.57s/it]Rollouts:  34%|███▍      | 17/50 [06:22<20:26, 37.16s/it]Rollouts:  36%|███▌      | 18/50 [06:26<14:28, 27.13s/it]Rollouts:  38%|███▊      | 19/50 [06:27<09:59, 19.35s/it]Rollouts:  40%|████      | 20/50 [06:28<06:49, 13.64s/it]Rollouts:  42%|████▏     | 21/50 [06:28<04:37,  9.58s/it]Rollouts:  44%|████▍     | 22/50 [06:28<03:13,  6.89s/it]Rollouts:  46%|████▌     | 23/50 [06:29<02:12,  4.91s/it]Rollouts:  48%|████▊     | 24/50 [06:29<01:33,  3.60s/it]Rollouts:  50%|█████     | 25/50 [08:29<15:58, 38.34s/it]Rollouts:  52%|█████▏    | 26/50 [08:32<11:10, 27.95s/it]Rollouts:  54%|█████▍    | 27/50 [08:35<07:50, 20.45s/it]Rollouts:  56%|█████▌    | 28/50 [08:36<05:18, 14.46s/it]Rollouts:  58%|█████▊    | 29/50 [08:36<03:34, 10.19s/it]Rollouts:  60%|██████    | 30/50 [08:37<02:26,  7.31s/it]Rollouts:  64%|██████▍   | 32/50 [08:37<01:14,  4.13s/it]Rollouts:  66%|██████▌   | 33/50 [10:38<09:22, 33.06s/it]Rollouts:  68%|██████▊   | 34/50 [10:42<06:45, 25.32s/it]Rollouts:  70%|███████   | 35/50 [10:46<04:53, 19.59s/it]Rollouts:  72%|███████▏  | 36/50 [10:47<03:20, 14.29s/it]Rollouts:  74%|███████▍  | 37/50 [10:47<02:14, 10.32s/it]Rollouts:  76%|███████▌  | 38/50 [10:47<01:28,  7.41s/it]Rollouts:  78%|███████▊  | 39/50 [10:47<00:58,  5.31s/it]Rollouts:  80%|████████  | 40/50 [10:48<00:38,  3.83s/it]Rollouts:  82%|████████▏ | 41/50 [12:45<05:37, 37.51s/it]Rollouts:  84%|████████▍ | 42/50 [12:50<03:41, 27.65s/it]Rollouts:  86%|████████▌ | 43/50 [12:56<02:29, 21.35s/it]Rollouts:  88%|████████▊ | 44/50 [12:56<01:30, 15.08s/it]Rollouts:  90%|█████████ | 45/50 [12:57<00:53, 10.65s/it]Rollouts:  92%|█████████▏| 46/50 [12:57<00:30,  7.52s/it]Rollouts:  94%|█████████▍| 47/50 [12:57<00:16,  5.36s/it]Rollouts:  96%|█████████▌| 48/50 [12:57<00:07,  3.80s/it]Rollouts:  98%|█████████▊| 49/50 [13:30<00:12, 12.56s/it]Rollouts: 100%|██████████| 50/50 [13:31<00:00,  8.97s/it]Rollouts: 100%|██████████| 50/50 [13:31<00:00, 16.23s/it]
+Detected 4 GPUs → ['cuda:0', 'cuda:1', 'cuda:2', 'cuda:3']
+>>> Model loaded on: cuda:0
+>>> Model loaded on: cuda:1
+>>> Model loaded on: cuda:2
+>>> Model loaded on: cuda:3
+[Worker 0] running on cuda:0
+[Worker 1] running on cuda:1
+[Worker 2] running on cuda:2
+[Worker 3] running on cuda:3
+[Worker 4] running on cuda:0
+[Worker 5] running on cuda:1
+[Worker 6] running on cuda:2
+[Worker 7] running on cuda:3
+→ Step 8: avg_reward=0.488
+Rollouts:   0%|          | 0/50 [00:00<?, ?it/s]Rollouts:   2%|▏         | 1/50 [02:20<1:54:45, 140.53s/it]Rollouts:   4%|▍         | 2/50 [02:21<46:36, 58.27s/it]   Rollouts:   6%|▌         | 3/50 [02:21<24:50, 31.72s/it]Rollouts:   8%|▊         | 4/50 [02:21<14:45, 19.25s/it]Rollouts:  10%|█         | 5/50 [02:21<09:17, 12.39s/it]Rollouts:  12%|█▏        | 6/50 [02:21<06:01,  8.23s/it]Rollouts:  14%|█▍        | 7/50 [02:22<04:04,  5.70s/it]Rollouts:  16%|█▌        | 8/50 [02:22<02:50,  4.06s/it]Rollouts:  18%|█▊        | 9/50 [04:29<28:59, 42.44s/it]Rollouts:  20%|██        | 10/50 [04:30<19:46, 29.65s/it]Rollouts:  22%|██▏       | 11/50 [04:32<13:42, 21.10s/it]Rollouts:  24%|██▍       | 12/50 [04:32<09:21, 14.78s/it]Rollouts:  26%|██▌       | 13/50 [04:33<06:23, 10.38s/it]Rollouts:  30%|███       | 15/50 [04:33<03:16,  5.62s/it]Rollouts:  32%|███▏      | 16/50 [04:33<02:24,  4.25s/it]Rollouts:  34%|███▍      | 17/50 [06:34<19:11, 34.90s/it]Rollouts:  36%|███▌      | 18/50 [06:34<13:36, 25.52s/it]Rollouts:  38%|███▊      | 19/50 [06:39<10:05, 19.53s/it]Rollouts:  40%|████      | 20/50 [06:39<07:02, 14.09s/it]Rollouts:  42%|████▏     | 21/50 [06:39<04:52, 10.10s/it]Rollouts:  46%|████▌     | 23/50 [06:40<02:31,  5.62s/it]Rollouts:  48%|████▊     | 24/50 [06:40<01:51,  4.28s/it]Rollouts:  50%|█████     | 25/50 [08:40<14:16, 34.27s/it]Rollouts:  52%|█████▏    | 26/50 [08:42<10:09, 25.39s/it]Rollouts:  54%|█████▍    | 27/50 [08:47<07:35, 19.82s/it]Rollouts:  56%|█████▌    | 28/50 [08:48<05:16, 14.39s/it]Rollouts:  58%|█████▊    | 29/50 [08:48<03:35, 10.28s/it]Rollouts:  60%|██████    | 30/50 [08:48<02:28,  7.41s/it]Rollouts:  62%|██████▏   | 31/50 [08:49<01:41,  5.32s/it]Rollouts:  66%|██████▌   | 33/50 [10:46<08:27, 29.83s/it]Rollouts:  68%|██████▊   | 34/50 [10:48<06:06, 22.91s/it]Rollouts:  70%|███████   | 35/50 [10:54<04:38, 18.58s/it]Rollouts:  72%|███████▏  | 36/50 [10:55<03:10, 13.60s/it]Rollouts:  74%|███████▍  | 37/50 [10:55<02:09,  9.95s/it]Rollouts:  76%|███████▌  | 38/50 [10:55<01:26,  7.18s/it]Rollouts:  78%|███████▊  | 39/50 [10:56<00:57,  5.23s/it]Rollouts:  80%|████████  | 40/50 [10:56<00:38,  3.84s/it]Rollouts:  82%|████████▏ | 41/50 [12:58<05:47, 38.60s/it]Rollouts:  84%|████████▍ | 42/50 [13:00<03:42, 27.83s/it]Rollouts:  86%|████████▌ | 43/50 [13:06<02:29, 21.30s/it]Rollouts:  88%|████████▊ | 44/50 [13:07<01:30, 15.10s/it]Rollouts:  90%|█████████ | 45/50 [13:07<00:53, 10.65s/it]Rollouts:  92%|█████████▏| 46/50 [13:07<00:30,  7.55s/it]Rollouts:  96%|█████████▌| 48/50 [13:08<00:08,  4.25s/it]Rollouts:  98%|█████████▊| 49/50 [13:40<00:11, 11.10s/it]Rollouts: 100%|██████████| 50/50 [13:40<00:00,  8.33s/it]Rollouts: 100%|██████████| 50/50 [13:40<00:00, 16.42s/it]
+Detected 4 GPUs → ['cuda:0', 'cuda:1', 'cuda:2', 'cuda:3']
+>>> Model loaded on: cuda:0
+>>> Model loaded on: cuda:1
+>>> Model loaded on: cuda:2
+>>> Model loaded on: cuda:3
+[Worker 0] running on cuda:0
+[Worker 1] running on cuda:1
+[Worker 2] running on cuda:2
+[Worker 3] running on cuda:3
+[Worker 4] running on cuda:0
+[Worker 5] running on cuda:1
+[Worker 6] running on cuda:2
+[Worker 7] running on cuda:3
+→ Step 9: avg_reward=0.584
+Rollouts:   0%|          | 0/50 [00:00<?, ?it/s]Rollouts:   2%|▏         | 1/50 [02:12<1:48:25, 132.77s/it]Rollouts:   4%|▍         | 2/50 [02:12<43:49, 54.77s/it]   Rollouts:   6%|▌         | 3/50 [02:13<23:38, 30.18s/it]Rollouts:   8%|▊         | 4/50 [02:13<14:02, 18.31s/it]Rollouts:  10%|█         | 5/50 [02:14<08:48, 11.75s/it]Rollouts:  12%|█▏        | 6/50 [02:14<05:46,  7.87s/it]Rollouts:  14%|█▍        | 7/50 [02:15<04:00,  5.60s/it]Rollouts:  16%|█▌        | 8/50 [02:15<02:42,  3.87s/it]Rollouts:  18%|█▊        | 9/50 [04:22<28:50, 42.22s/it]Rollouts:  20%|██        | 10/50 [04:22<19:36, 29.41s/it]Rollouts:  22%|██▏       | 11/50 [04:26<14:01, 21.57s/it]Rollouts:  24%|██▍       | 12/50 [04:26<09:34, 15.11s/it]Rollouts:  26%|██▌       | 13/50 [04:28<06:45, 10.96s/it]Rollouts:  28%|██▊       | 14/50 [04:28<04:37,  7.72s/it]Rollouts:  30%|███       | 15/50 [04:28<03:12,  5.49s/it]Rollouts:  32%|███▏      | 16/50 [04:29<02:16,  4.03s/it]Rollouts:  34%|███▍      | 17/50 [06:29<21:25, 38.94s/it]Rollouts:  36%|███▌      | 18/50 [06:30<14:35, 27.36s/it]Rollouts:  38%|███▊      | 19/50 [06:34<10:34, 20.47s/it]Rollouts:  40%|████      | 20/50 [06:35<07:14, 14.49s/it]Rollouts:  42%|████▏     | 21/50 [06:36<05:11, 10.72s/it]Rollouts:  44%|████▍     | 22/50 [06:38<03:46,  8.08s/it]Rollouts:  46%|████▌     | 23/50 [06:39<02:37,  5.83s/it]Rollouts:  48%|████▊     | 24/50 [06:41<02:00,  4.65s/it]Rollouts:  50%|█████     | 25/50 [08:35<15:38, 37.52s/it]Rollouts:  52%|█████▏    | 26/50 [08:38<10:49, 27.08s/it]Rollouts:  54%|█████▍    | 27/50 [08:42<07:42, 20.11s/it]Rollouts:  56%|█████▌    | 28/50 [08:42<05:10, 14.12s/it]Rollouts:  58%|█████▊    | 29/50 [08:44<03:39, 10.46s/it]Rollouts:  60%|██████    | 30/50 [08:45<02:35,  7.80s/it]Rollouts:  62%|██████▏   | 31/50 [08:46<01:47,  5.66s/it]Rollouts:  64%|██████▍   | 32/50 [08:48<01:24,  4.69s/it]Rollouts:  66%|██████▌   | 33/50 [10:45<10:52, 38.37s/it]Rollouts:  68%|██████▊   | 34/50 [10:47<07:16, 27.27s/it]Rollouts:  70%|███████   | 35/50 [10:50<05:03, 20.21s/it]Rollouts:  72%|███████▏  | 36/50 [10:52<03:25, 14.71s/it]Rollouts:  74%|███████▍  | 37/50 [10:53<02:16, 10.47s/it]Rollouts:  76%|███████▌  | 38/50 [10:54<01:32,  7.69s/it]Rollouts:  78%|███████▊  | 39/50 [10:54<00:59,  5.44s/it]Rollouts:  80%|████████  | 40/50 [10:58<00:48,  4.88s/it]Rollouts:  82%|████████▏ | 41/50 [12:57<05:51, 39.01s/it]Rollouts:  84%|████████▍ | 42/50 [12:58<03:43, 27.89s/it]Rollouts:  86%|████████▌ | 43/50 [13:05<02:30, 21.46s/it]Rollouts:  88%|████████▊ | 44/50 [13:06<01:31, 15.27s/it]Rollouts:  90%|█████████ | 45/50 [13:06<00:53, 10.72s/it]Rollouts:  92%|█████████▏| 46/50 [13:06<00:30,  7.61s/it]Rollouts:  94%|█████████▍| 47/50 [13:07<00:16,  5.46s/it]Rollouts:  96%|█████████▌| 48/50 [13:07<00:07,  3.94s/it]Rollouts:  98%|█████████▊| 49/50 [13:40<00:12, 12.54s/it]Rollouts: 100%|██████████| 50/50 [13:40<00:00,  8.86s/it]Rollouts: 100%|██████████| 50/50 [13:40<00:00, 16.41s/it]
+Detected 4 GPUs → ['cuda:0', 'cuda:1', 'cuda:2', 'cuda:3']
+>>> Model loaded on: cuda:0
+>>> Model loaded on: cuda:1
+>>> Model loaded on: cuda:2
+>>> Model loaded on: cuda:3
+[Worker 0] running on cuda:0
+[Worker 1] running on cuda:1
+[Worker 2] running on cuda:2
+[Worker 3] running on cuda:3
+[Worker 4] running on cuda:0
+[Worker 5] running on cuda:1
+[Worker 6] running on cuda:2
+[Worker 7] running on cuda:3
+→ Step 10: avg_reward=0.640
+Rollouts:   0%|          | 0/50 [00:00<?, ?it/s]Rollouts:   2%|▏         | 1/50 [02:14<1:49:54, 134.58s/it]Rollouts:   4%|▍         | 2/50 [02:15<44:34, 55.72s/it]   Rollouts:   6%|▌         | 3/50 [02:16<24:07, 30.80s/it]Rollouts:   8%|▊         | 4/50 [02:16<14:28, 18.88s/it]Rollouts:  10%|█         | 5/50 [02:16<09:04, 12.11s/it]Rollouts:  12%|█▏        | 6/50 [02:17<05:53,  8.04s/it]Rollouts:  14%|█▍        | 7/50 [02:17<03:57,  5.53s/it]Rollouts:  16%|█▌        | 8/50 [02:17<02:40,  3.82s/it]Rollouts:  18%|█▊        | 9/50 [04:20<28:04, 41.08s/it]Rollouts:  20%|██        | 10/50 [04:21<19:09, 28.73s/it]Rollouts:  22%|██▏       | 11/50 [04:23<13:21, 20.56s/it]Rollouts:  24%|██▍       | 12/50 [04:25<09:28, 14.97s/it]Rollouts:  28%|██▊       | 14/50 [04:26<04:50,  8.08s/it]Rollouts:  30%|███       | 15/50 [04:26<03:35,  6.15s/it]Rollouts:  32%|███▏      | 16/50 [04:27<02:39,  4.68s/it]Rollouts:  34%|███▍      | 17/50 [06:35<21:11, 38.53s/it]Rollouts:  36%|███▌      | 18/50 [06:36<14:56, 28.01s/it]Rollouts:  38%|███▊      | 19/50 [06:40<10:53, 21.07s/it]Rollouts:  40%|████      | 20/50 [06:42<07:46, 15.56s/it]Rollouts:  42%|████▏     | 21/50 [06:43<05:24, 11.18s/it]Rollouts:  44%|████▍     | 22/50 [06:43<03:41,  7.91s/it]Rollouts:  48%|████▊     | 24/50 [06:44<01:58,  4.54s/it]Rollouts:  50%|█████     | 25/50 [08:32<12:32, 30.10s/it]Rollouts:  52%|█████▏    | 26/50 [08:34<09:01, 22.58s/it]Rollouts:  54%|█████▍    | 27/50 [08:40<07:00, 18.30s/it]Rollouts:  56%|█████▌    | 28/50 [08:42<05:01, 13.71s/it]Rollouts:  58%|█████▊    | 29/50 [08:43<03:30, 10.01s/it]Rollouts:  60%|██████    | 30/50 [08:43<02:24,  7.22s/it]Rollouts:  62%|██████▏   | 31/50 [08:44<01:39,  5.23s/it]Rollouts:  64%|██████▍   | 32/50 [08:44<01:09,  3.85s/it]Rollouts:  66%|██████▌   | 33/50 [10:45<10:52, 38.36s/it]Rollouts:  68%|██████▊   | 34/50 [10:45<07:14, 27.17s/it]Rollouts:  70%|███████   | 35/50 [10:53<05:19, 21.33s/it]Rollouts:  72%|███████▏  | 36/50 [10:54<03:35, 15.42s/it]Rollouts:  74%|███████▍  | 37/50 [10:55<02:21, 10.87s/it]Rollouts:  76%|███████▌  | 38/50 [10:55<01:33,  7.79s/it]Rollouts:  78%|███████▊  | 39/50 [10:56<01:02,  5.70s/it]Rollouts:  80%|████████  | 40/50 [10:57<00:43,  4.31s/it]Rollouts:  82%|████████▏ | 41/50 [12:53<05:39, 37.76s/it]Rollouts:  84%|████████▍ | 42/50 [12:53<03:31, 26.47s/it]Rollouts:  86%|████████▌ | 43/50 [13:03<02:30, 21.53s/it]Rollouts:  88%|████████▊ | 44/50 [13:04<01:32, 15.40s/it]Rollouts:  90%|█████████ | 45/50 [13:05<00:54, 10.95s/it]Rollouts:  92%|█████████▏| 46/50 [13:05<00:31,  7.80s/it]Rollouts:  94%|█████████▍| 47/50 [13:05<00:16,  5.49s/it]Rollouts:  96%|█████████▌| 48/50 [13:06<00:08,  4.08s/it]Rollouts:  98%|█████████▊| 49/50 [13:39<00:12, 12.62s/it]Rollouts: 100%|██████████| 50/50 [13:39<00:00,  8.89s/it]Rollouts: 100%|██████████| 50/50 [13:39<00:00, 16.39s/it]
+Detected 4 GPUs → ['cuda:0', 'cuda:1', 'cuda:2', 'cuda:3']
+>>> Model loaded on: cuda:0
+>>> Model loaded on: cuda:1
+>>> Model loaded on: cuda:2
+>>> Model loaded on: cuda:3
+[Worker 0] running on cuda:0
+[Worker 1] running on cuda:1
+[Worker 2] running on cuda:2
+[Worker 3] running on cuda:3
+[Worker 4] running on cuda:0
+[Worker 5] running on cuda:1
+[Worker 6] running on cuda:2
+[Worker 7] running on cuda:3
+→ Step 11: avg_reward=0.518
+[Controller] Refreshing experiences. Best reward so far: 0.82
+Controller triggered experience refresh.
+Rollouts:   0%|          | 0/50 [00:00<?, ?it/s]Rollouts:   2%|▏         | 1/50 [02:21<1:55:48, 141.81s/it]Rollouts:   4%|▍         | 2/50 [02:22<46:54, 58.65s/it]   Rollouts:   8%|▊         | 4/50 [02:22<16:50, 21.96s/it]Rollouts:  10%|█         | 5/50 [02:22<11:25, 15.24s/it]Rollouts:  14%|█▍        | 7/50 [02:23<05:50,  8.15s/it]Rollouts:  18%|█▊        | 9/50 [04:26<20:19, 29.74s/it]Rollouts:  20%|██        | 10/50 [04:28<15:35, 23.40s/it]Rollouts:  26%|██▌       | 13/50 [04:28<07:25, 12.04s/it]Rollouts:  28%|██▊       | 14/50 [04:28<05:53,  9.82s/it]Rollouts:  30%|███       | 15/50 [04:29<04:33,  7.82s/it]Rollouts:  32%|███▏      | 16/50 [04:29<03:25,  6.06s/it]Rollouts:  34%|███▍      | 17/50 [06:33<19:34, 35.60s/it]Rollouts:  36%|███▌      | 18/50 [06:34<14:07, 26.50s/it]Rollouts:  38%|███▊      | 19/50 [06:37<10:16, 19.89s/it]Rollouts:  40%|████      | 20/50 [06:37<07:10, 14.36s/it]Rollouts:  42%|████▏     | 21/50 [06:37<04:59, 10.31s/it]Rollouts:  46%|████▌     | 23/50 [06:38<02:38,  5.88s/it]Rollouts:  48%|████▊     | 24/50 [06:38<01:57,  4.51s/it]Rollouts:  50%|█████     | 25/50 [08:43<14:50, 35.61s/it]Rollouts:  52%|█████▏    | 26/50 [08:44<10:28, 26.17s/it]Rollouts:  54%|█████▍    | 27/50 [08:49<07:44, 20.19s/it]Rollouts:  56%|█████▌    | 28/50 [08:49<05:20, 14.56s/it]Rollouts:  58%|█████▊    | 29/50 [08:50<03:40, 10.52s/it]Rollouts:  60%|██████    | 30/50 [08:50<02:31,  7.58s/it]Rollouts:  62%|██████▏   | 31/50 [08:50<01:43,  5.44s/it]Rollouts:  64%|██████▍   | 32/50 [08:51<01:11,  4.00s/it]Rollouts:  66%|██████▌   | 33/50 [10:54<11:09, 39.37s/it]Rollouts:  68%|██████▊   | 34/50 [10:55<07:25, 27.87s/it]Rollouts:  70%|███████   | 35/50 [11:00<05:14, 21.00s/it]Rollouts:  72%|███████▏  | 36/50 [11:00<03:27, 14.82s/it]Rollouts:  74%|███████▍  | 37/50 [11:01<02:18, 10.67s/it]Rollouts:  76%|███████▌  | 38/50 [11:01<01:30,  7.57s/it]Rollouts:  78%|███████▊  | 39/50 [11:02<01:00,  5.52s/it]Rollouts:  80%|████████  | 40/50 [11:03<00:41,  4.15s/it]Rollouts:  82%|████████▏ | 41/50 [13:00<05:42, 38.06s/it]Rollouts:  84%|████████▍ | 42/50 [13:01<03:36, 27.06s/it]Rollouts:  86%|████████▌ | 43/50 [13:06<02:21, 20.25s/it]Rollouts:  88%|████████▊ | 44/50 [13:07<01:26, 14.42s/it]Rollouts:  90%|█████████ | 45/50 [13:08<00:52, 10.40s/it]Rollouts:  92%|█████████▏| 46/50 [13:08<00:29,  7.32s/it]Rollouts:  94%|█████████▍| 47/50 [13:08<00:15,  5.15s/it]Rollouts:  96%|█████████▌| 48/50 [13:08<00:07,  3.66s/it]Rollouts:  98%|█████████▊| 49/50 [13:42<00:12, 12.69s/it]Rollouts: 100%|██████████| 50/50 [13:42<00:00,  8.96s/it]Rollouts: 100%|██████████| 50/50 [13:42<00:00, 16.45s/it]
+Detected 4 GPUs → ['cuda:0', 'cuda:1', 'cuda:2', 'cuda:3']
+>>> Model loaded on: cuda:0
+>>> Model loaded on: cuda:1
+>>> Model loaded on: cuda:2
+>>> Model loaded on: cuda:3
+[Worker 0] running on cuda:0
+[Worker 1] running on cuda:1
+[Worker 2] running on cuda:2
+[Worker 3] running on cuda:3
+[Worker 4] running on cuda:0
+[Worker 5] running on cuda:1
+[Worker 6] running on cuda:2
+[Worker 7] running on cuda:3
+→ Step 12: avg_reward=0.756
+Rollouts:   0%|          | 0/50 [00:00<?, ?it/s]Rollouts:   2%|▏         | 1/50 [02:10<1:46:13, 130.07s/it]Rollouts:   4%|▍         | 2/50 [02:10<42:59, 53.75s/it]   Rollouts:   6%|▌         | 3/50 [02:11<23:07, 29.53s/it]Rollouts:  10%|█         | 5/50 [02:11<09:38, 12.86s/it]Rollouts:  14%|█▍        | 7/50 [02:11<05:09,  7.19s/it]Rollouts:  16%|█▌        | 8/50 [02:11<03:50,  5.49s/it]Rollouts:  18%|█▊        | 9/50 [04:14<24:15, 35.50s/it]Rollouts:  20%|██        | 10/50 [04:14<17:23, 26.10s/it]Rollouts:  22%|██▏       | 11/50 [04:17<12:44, 19.59s/it]Rollouts:  24%|██▍       | 12/50 [04:17<08:55, 14.10s/it]Rollouts:  26%|██▌       | 13/50 [04:17<06:13, 10.11s/it]Rollouts:  28%|██▊       | 14/50 [04:17<04:19,  7.20s/it]Rollouts:  34%|███▍      | 17/50 [06:23<14:33, 26.47s/it]Rollouts:  36%|███▌      | 18/50 [06:24<11:14, 21.07s/it]Rollouts:  38%|███▊      | 19/50 [06:29<08:57, 17.35s/it]Rollouts:  40%|████      | 20/50 [06:29<06:36, 13.23s/it]Rollouts:  42%|████▏     | 21/50 [06:30<04:45,  9.84s/it]Rollouts:  44%|████▍     | 22/50 [06:30<03:21,  7.21s/it]Rollouts:  46%|████▌     | 23/50 [06:30<02:22,  5.29s/it]Rollouts:  48%|████▊     | 24/50 [06:30<01:39,  3.82s/it]Rollouts:  50%|█████     | 25/50 [08:31<15:41, 37.67s/it]Rollouts:  52%|█████▏    | 26/50 [08:32<10:46, 26.94s/it]Rollouts:  54%|█████▍    | 27/50 [08:37<07:49, 20.43s/it]Rollouts:  56%|█████▌    | 28/50 [08:38<05:22, 14.64s/it]Rollouts:  58%|█████▊    | 29/50 [08:38<03:38, 10.41s/it]Rollouts:  60%|██████    | 30/50 [08:38<02:28,  7.41s/it]Rollouts:  62%|██████▏   | 31/50 [08:39<01:41,  5.34s/it]Rollouts:  64%|██████▍   | 32/50 [08:39<01:09,  3.86s/it]Rollouts:  66%|██████▌   | 33/50 [10:42<11:11, 39.48s/it]Rollouts:  68%|██████▊   | 34/50 [10:43<07:27, 27.97s/it]Rollouts:  70%|███████   | 35/50 [10:51<05:27, 21.84s/it]Rollouts:  72%|███████▏  | 36/50 [10:52<03:40, 15.72s/it]Rollouts:  74%|███████▍  | 37/50 [10:52<02:24, 11.11s/it]Rollouts:  76%|███████▌  | 38/50 [10:53<01:33,  7.82s/it]Rollouts:  78%|███████▊  | 39/50 [10:54<01:03,  5.80s/it]Rollouts:  80%|████████  | 40/50 [10:54<00:42,  4.24s/it]Rollouts:  82%|████████▏ | 41/50 [12:48<05:34, 37.15s/it]Rollouts:  84%|████████▍ | 42/50 [12:49<03:30, 26.34s/it]Rollouts:  86%|████████▌ | 43/50 [12:57<02:25, 20.76s/it]Rollouts:  88%|████████▊ | 44/50 [12:58<01:28, 14.69s/it]Rollouts:  90%|█████████ | 45/50 [12:58<00:52, 10.42s/it]Rollouts:  92%|█████████▏| 46/50 [12:59<00:29,  7.44s/it]Rollouts:  94%|█████████▍| 47/50 [12:59<00:16,  5.39s/it]Rollouts:  96%|█████████▌| 48/50 [12:59<00:07,  3.84s/it]Rollouts:  98%|█████████▊| 49/50 [13:32<00:12, 12.52s/it]Rollouts: 100%|██████████| 50/50 [13:32<00:00,  8.80s/it]Rollouts: 100%|██████████| 50/50 [13:32<00:00, 16.26s/it]
+Detected 4 GPUs → ['cuda:0', 'cuda:1', 'cuda:2', 'cuda:3']
+>>> Model loaded on: cuda:0
+>>> Model loaded on: cuda:1
+>>> Model loaded on: cuda:2
+>>> Model loaded on: cuda:3
+[Worker 0] running on cuda:0
+[Worker 1] running on cuda:1
+[Worker 2] running on cuda:2
+[Worker 3] running on cuda:3
+[Worker 4] running on cuda:0
+[Worker 5] running on cuda:1
+[Worker 6] running on cuda:2
+[Worker 7] running on cuda:3
+→ Step 13: avg_reward=0.596
+Rollouts:   0%|          | 0/50 [00:00<?, ?it/s]Rollouts:   2%|▏         | 1/50 [02:15<1:50:59, 135.90s/it]Rollouts:   4%|▍         | 2/50 [02:17<45:17, 56.62s/it]   Rollouts:   6%|▌         | 3/50 [02:17<24:09, 30.85s/it]Rollouts:   8%|▊         | 4/50 [02:17<14:27, 18.86s/it]Rollouts:  10%|█         | 5/50 [02:17<09:07, 12.17s/it]Rollouts:  12%|█▏        | 6/50 [02:18<05:59,  8.18s/it]Rollouts:  14%|█▍        | 7/50 [02:18<04:01,  5.61s/it]Rollouts:  16%|█▌        | 8/50 [02:18<02:42,  3.88s/it]Rollouts:  18%|█▊        | 9/50 [04:23<28:29, 41.69s/it]Rollouts:  20%|██        | 10/50 [04:24<19:26, 29.17s/it]Rollouts:  22%|██▏       | 11/50 [04:25<13:12, 20.32s/it]Rollouts:  24%|██▍       | 12/50 [04:26<09:15, 14.62s/it]Rollouts:  26%|██▌       | 13/50 [04:27<06:28, 10.50s/it]Rollouts:  28%|██▊       | 14/50 [04:27<04:26,  7.40s/it]Rollouts:  30%|███       | 15/50 [04:28<03:04,  5.28s/it]Rollouts:  32%|███▏      | 16/50 [04:29<02:14,  3.95s/it]Rollouts:  34%|███▍      | 17/50 [06:35<22:19, 40.60s/it]Rollouts:  36%|███▌      | 18/50 [06:35<15:14, 28.58s/it]Rollouts:  38%|███▊      | 19/50 [06:36<10:24, 20.16s/it]Rollouts:  40%|████      | 20/50 [06:37<07:17, 14.57s/it]Rollouts:  42%|████▏     | 21/50 [06:38<05:03, 10.48s/it]Rollouts:  44%|████▍     | 22/50 [06:38<03:26,  7.38s/it]Rollouts:  46%|████▌     | 23/50 [06:39<02:21,  5.23s/it]Rollouts:  48%|████▊     | 24/50 [06:39<01:42,  3.94s/it]Rollouts:  50%|█████     | 25/50 [08:49<17:22, 41.71s/it]Rollouts:  52%|█████▏    | 26/50 [08:50<11:44, 29.35s/it]Rollouts:  54%|█████▍    | 27/50 [08:51<08:02, 20.98s/it]Rollouts:  56%|█████▌    | 28/50 [08:53<05:37, 15.36s/it]Rollouts:  58%|█████▊    | 29/50 [08:54<03:51, 11.03s/it]Rollouts:  62%|██████▏   | 31/50 [08:56<01:57,  6.20s/it]Rollouts:  64%|██████▍   | 32/50 [08:56<01:25,  4.73s/it]Rollouts:  66%|██████▌   | 33/50 [10:47<09:15, 32.68s/it]Rollouts:  68%|██████▊   | 34/50 [10:48<06:24, 24.01s/it]Rollouts:  70%|███████   | 35/50 [10:51<04:31, 18.12s/it]Rollouts:  72%|███████▏  | 36/50 [10:54<03:11, 13.65s/it]Rollouts:  74%|███████▍  | 37/50 [10:54<02:07,  9.80s/it]Rollouts:  76%|███████▌  | 38/50 [10:55<01:27,  7.25s/it]Rollouts:  78%|███████▊  | 39/50 [10:55<00:56,  5.15s/it]Rollouts:  80%|████████  | 40/50 [10:56<00:37,  3.74s/it]Rollouts:  82%|████████▏ | 41/50 [12:54<05:41, 37.97s/it]Rollouts:  84%|████████▍ | 42/50 [12:55<03:34, 26.84s/it]Rollouts:  86%|████████▌ | 43/50 [12:59<02:19, 19.89s/it]Rollouts:  88%|████████▊ | 44/50 [13:01<01:27, 14.66s/it]Rollouts:  90%|█████████ | 45/50 [13:01<00:51, 10.31s/it]Rollouts:  92%|█████████▏| 46/50 [13:02<00:29,  7.41s/it]Rollouts:  94%|█████████▍| 47/50 [13:02<00:15,  5.26s/it]Rollouts:  96%|█████████▌| 48/50 [13:02<00:07,  3.77s/it]Rollouts:  98%|█████████▊| 49/50 [13:39<00:13, 13.55s/it]Rollouts: 100%|██████████| 50/50 [13:39<00:00,  9.52s/it]Rollouts: 100%|██████████| 50/50 [13:39<00:00, 16.39s/it]
+Detected 4 GPUs → ['cuda:0', 'cuda:1', 'cuda:2', 'cuda:3']
+>>> Model loaded on: cuda:0
+>>> Model loaded on: cuda:1
+>>> Model loaded on: cuda:2
+>>> Model loaded on: cuda:3
+[Worker 0] running on cuda:0
+[Worker 1] running on cuda:1
+[Worker 2] running on cuda:2
+[Worker 3] running on cuda:3
+[Worker 4] running on cuda:0
+[Worker 5] running on cuda:1
+[Worker 6] running on cuda:2
+[Worker 7] running on cuda:3
+→ Step 14: avg_reward=0.824
+Rollouts:   0%|          | 0/50 [00:00<?, ?it/s]Rollouts:   2%|▏         | 1/50 [02:17<1:52:08, 137.33s/it]Rollouts:   4%|▍         | 2/50 [02:17<45:31, 56.91s/it]   Rollouts:   6%|▌         | 3/50 [02:18<24:20, 31.06s/it]Rollouts:   8%|▊         | 4/50 [02:18<14:33, 18.99s/it]Rollouts:  10%|█         | 5/50 [02:19<09:12, 12.27s/it]Rollouts:  12%|█▏        | 6/50 [02:19<06:04,  8.27s/it]Rollouts:  14%|█▍        | 7/50 [02:19<04:04,  5.67s/it]Rollouts:  16%|█▌        | 8/50 [02:20<02:46,  3.96s/it]Rollouts:  18%|█▊        | 9/50 [04:24<28:20, 41.47s/it]Rollouts:  20%|██        | 10/50 [04:25<19:20, 29.01s/it]Rollouts:  22%|██▏       | 11/50 [04:26<13:25, 20.65s/it]Rollouts:  24%|██▍       | 12/50 [04:30<09:49, 15.52s/it]Rollouts:  26%|██▌       | 13/50 [04:31<06:45, 10.96s/it]Rollouts:  28%|██▊       | 14/50 [04:31<04:38,  7.73s/it]Rollouts:  30%|███       | 15/50 [04:32<03:18,  5.68s/it]Rollouts:  32%|███▏      | 16/50 [04:32<02:17,  4.05s/it]Rollouts:  34%|███▍      | 17/50 [06:32<21:27, 39.00s/it]Rollouts:  36%|███▌      | 18/50 [06:34<14:47, 27.75s/it]Rollouts:  38%|███▊      | 19/50 [06:37<10:31, 20.36s/it]Rollouts:  40%|████      | 20/50 [06:41<07:41, 15.38s/it]Rollouts:  42%|████▏     | 21/50 [06:41<05:14, 10.84s/it]Rollouts:  44%|████▍     | 22/50 [06:42<03:35,  7.70s/it]Rollouts:  46%|████▌     | 23/50 [06:43<02:35,  5.74s/it]Rollouts:  48%|████▊     | 24/50 [06:44<01:57,  4.54s/it]Rollouts:  50%|█████     | 25/50 [08:42<15:58, 38.35s/it]Rollouts:  52%|█████▏    | 26/50 [08:44<11:01, 27.56s/it]Rollouts:  54%|█████▍    | 27/50 [08:48<07:48, 20.37s/it]Rollouts:  56%|█████▌    | 28/50 [08:53<05:46, 15.73s/it]Rollouts:  58%|█████▊    | 29/50 [08:53<03:53, 11.12s/it]Rollouts:  60%|██████    | 30/50 [08:53<02:38,  7.93s/it]Rollouts:  62%|██████▏   | 31/50 [08:54<01:49,  5.77s/it]Rollouts:  64%|██████▍   | 32/50 [08:57<01:27,  4.85s/it]Rollouts:  66%|██████▌   | 33/50 [10:53<10:48, 38.14s/it]Rollouts:  68%|██████▊   | 34/50 [10:53<07:07, 26.75s/it]Rollouts:  70%|███████   | 35/50 [10:58<05:03, 20.21s/it]Rollouts:  72%|███████▏  | 36/50 [11:03<03:38, 15.58s/it]Rollouts:  74%|███████▍  | 37/50 [11:03<02:24, 11.10s/it]Rollouts:  76%|███████▌  | 38/50 [11:05<01:38,  8.18s/it]Rollouts:  78%|███████▊  | 39/50 [11:05<01:03,  5.82s/it]Rollouts:  80%|████████  | 40/50 [11:08<00:48,  4.85s/it]Rollouts:  82%|████████▏ | 41/50 [13:04<05:45, 38.37s/it]Rollouts:  84%|████████▍ | 42/50 [13:04<03:35, 26.93s/it]Rollouts:  86%|████████▌ | 43/50 [13:11<02:25, 20.74s/it]Rollouts:  88%|████████▊ | 44/50 [13:14<01:33, 15.56s/it]Rollouts:  90%|█████████ | 45/50 [13:15<00:55, 11.04s/it]Rollouts:  92%|█████████▏| 46/50 [13:15<00:31,  7.89s/it]Rollouts:  94%|█████████▍| 47/50 [13:15<00:16,  5.63s/it]Rollouts:  96%|█████████▌| 48/50 [13:16<00:08,  4.08s/it]Rollouts:  98%|█████████▊| 49/50 [13:47<00:12, 12.32s/it]Rollouts: 100%|██████████| 50/50 [13:48<00:00,  8.74s/it]Rollouts: 100%|██████████| 50/50 [13:48<00:00, 16.57s/it]
+Detected 4 GPUs → ['cuda:0', 'cuda:1', 'cuda:2', 'cuda:3']
+>>> Model loaded on: cuda:0
+>>> Model loaded on: cuda:1
+>>> Model loaded on: cuda:2
+>>> Model loaded on: cuda:3
+[Worker 0] running on cuda:0
+[Worker 1] running on cuda:1
+[Worker 2] running on cuda:2
+[Worker 3] running on cuda:3
+[Worker 4] running on cuda:0
+[Worker 5] running on cuda:1
+[Worker 6] running on cuda:2
+[Worker 7] running on cuda:3
+→ Step 15: avg_reward=0.556
+Rollouts:   0%|          | 0/50 [00:00<?, ?it/s]Rollouts:   2%|▏         | 1/50 [02:17<1:52:01, 137.18s/it]Rollouts:   4%|▍         | 2/50 [02:17<45:20, 56.67s/it]   Rollouts:   6%|▌         | 3/50 [02:17<24:11, 30.89s/it]Rollouts:   8%|▊         | 4/50 [02:18<14:30, 18.91s/it]Rollouts:  10%|█         | 5/50 [02:18<09:09, 12.22s/it]Rollouts:  12%|█▏        | 6/50 [02:18<05:57,  8.12s/it]Rollouts:  14%|█▍        | 7/50 [02:18<03:57,  5.52s/it]Rollouts:  16%|█▌        | 8/50 [02:19<02:40,  3.82s/it]Rollouts:  18%|█▊        | 9/50 [04:23<28:27, 41.64s/it]Rollouts:  20%|██        | 10/50 [04:24<19:17, 28.95s/it]Rollouts:  22%|██▏       | 11/50 [04:24<13:09, 20.24s/it]Rollouts:  24%|██▍       | 12/50 [04:25<09:05, 14.35s/it]Rollouts:  26%|██▌       | 13/50 [04:26<06:17, 10.21s/it]Rollouts:  28%|██▊       | 14/50 [04:27<04:25,  7.38s/it]Rollouts:  30%|███       | 15/50 [04:27<03:02,  5.21s/it]Rollouts:  32%|███▏      | 16/50 [04:28<02:10,  3.83s/it]Rollouts:  34%|███▍      | 17/50 [06:29<21:33, 39.19s/it]Rollouts:  36%|███▌      | 18/50 [06:30<14:41, 27.56s/it]Rollouts:  38%|███▊      | 19/50 [06:30<10:06, 19.56s/it]Rollouts:  40%|████      | 20/50 [06:32<07:06, 14.22s/it]Rollouts:  42%|████▏     | 21/50 [06:33<04:51, 10.06s/it]Rollouts:  44%|████▍     | 22/50 [06:34<03:29,  7.47s/it]Rollouts:  46%|████▌     | 23/50 [06:34<02:23,  5.31s/it]Rollouts:  48%|████▊     | 24/50 [06:35<01:38,  3.78s/it]Rollouts:  50%|█████     | 25/50 [08:39<16:41, 40.06s/it]Rollouts:  52%|█████▏    | 26/50 [08:40<11:16, 28.20s/it]Rollouts:  54%|█████▍    | 27/50 [08:41<07:44, 20.18s/it]Rollouts:  56%|█████▌    | 28/50 [08:44<05:26, 14.82s/it]Rollouts:  58%|█████▊    | 29/50 [08:44<03:38, 10.43s/it]Rollouts:  60%|██████    | 30/50 [08:45<02:32,  7.65s/it]Rollouts:  62%|██████▏   | 31/50 [08:45<01:43,  5.45s/it]Rollouts:  64%|██████▍   | 32/50 [08:46<01:11,  3.96s/it]Rollouts:  66%|██████▌   | 33/50 [10:49<11:16, 39.81s/it]Rollouts:  68%|██████▊   | 34/50 [10:50<07:29, 28.10s/it]Rollouts:  70%|███████   | 35/50 [10:52<05:04, 20.28s/it]Rollouts:  72%|███████▏  | 36/50 [10:55<03:32, 15.20s/it]Rollouts:  76%|███████▌  | 38/50 [10:56<01:39,  8.33s/it]Rollouts:  78%|███████▊  | 39/50 [10:57<01:10,  6.42s/it]Rollouts:  80%|████████  | 40/50 [10:57<00:48,  4.83s/it]Rollouts:  82%|████████▏ | 41/50 [12:59<05:29, 36.66s/it]Rollouts:  84%|████████▍ | 42/50 [13:01<03:35, 26.96s/it]Rollouts:  86%|████████▌ | 43/50 [13:01<02:16, 19.47s/it]Rollouts:  88%|████████▊ | 44/50 [13:05<01:29, 14.86s/it]Rollouts:  90%|█████████ | 45/50 [13:05<00:52, 10.59s/it]Rollouts:  92%|█████████▏| 46/50 [13:06<00:30,  7.55s/it]Rollouts:  94%|█████████▍| 47/50 [13:06<00:16,  5.43s/it]Rollouts:  96%|█████████▌| 48/50 [13:06<00:07,  3.93s/it]Rollouts:  98%|█████████▊| 49/50 [13:41<00:13, 13.07s/it]Rollouts: 100%|██████████| 50/50 [13:41<00:00,  9.27s/it]Rollouts: 100%|██████████| 50/50 [13:41<00:00, 16.44s/it]
+Detected 4 GPUs → ['cuda:0', 'cuda:1', 'cuda:2', 'cuda:3']
+>>> Model loaded on: cuda:0
+>>> Model loaded on: cuda:1
+>>> Model loaded on: cuda:2
+>>> Model loaded on: cuda:3
+[Worker 0] running on cuda:0
+[Worker 1] running on cuda:1
+[Worker 2] running on cuda:2
+[Worker 3] running on cuda:3
+[Worker 4] running on cuda:0
+[Worker 5] running on cuda:1
+[Worker 6] running on cuda:2
+[Worker 7] running on cuda:3
+→ Step 16: avg_reward=0.652
+[Controller] Refreshing experiences. Best reward so far: 0.82
+Controller triggered experience refresh.
+Rollouts:   0%|          | 0/50 [00:00<?, ?it/s]Rollouts:   2%|▏         | 1/50 [02:18<1:52:59, 138.35s/it]Rollouts:   4%|▍         | 2/50 [02:18<45:50, 57.30s/it]   Rollouts:   8%|▊         | 4/50 [02:19<16:26, 21.45s/it]Rollouts:  10%|█         | 5/50 [02:19<11:10, 14.90s/it]Rollouts:  12%|█▏        | 6/50 [02:19<07:40, 10.46s/it]Rollouts:  16%|█▌        | 8/50 [02:20<03:55,  5.62s/it]Rollouts:  18%|█▊        | 9/50 [04:26<24:27, 35.79s/it]Rollouts:  20%|██        | 10/50 [04:26<17:40, 26.52s/it]Rollouts:  22%|██▏       | 11/50 [04:29<13:01, 20.04s/it]Rollouts:  26%|██▌       | 13/50 [04:30<07:02, 11.43s/it]Rollouts:  28%|██▊       | 14/50 [04:30<05:16,  8.79s/it]Rollouts:  30%|███       | 15/50 [04:31<03:52,  6.65s/it]Rollouts:  34%|███▍      | 17/50 [06:34<16:24, 29.83s/it]Rollouts:  36%|███▌      | 18/50 [06:34<12:15, 22.97s/it]Rollouts:  38%|███▊      | 19/50 [06:39<09:29, 18.36s/it]Rollouts:  40%|████      | 20/50 [06:39<06:47, 13.59s/it]Rollouts:  42%|████▏     | 21/50 [06:40<04:54, 10.16s/it]Rollouts:  44%|████▍     | 22/50 [06:40<03:26,  7.37s/it]Rollouts:  46%|████▌     | 23/50 [06:41<02:26,  5.42s/it]Rollouts:  48%|████▊     | 24/50 [06:41<01:46,  4.11s/it]slurmstepd-gypsum-gpu155: error: *** JOB 48826837 ON gypsum-gpu155 CANCELLED AT 2025-11-12T01:43:35 DUE TO TIME LIMIT ***

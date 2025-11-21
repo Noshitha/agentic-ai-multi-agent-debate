@@ -1,0 +1,56 @@
+Loading cuda version 12.1
+==== JOB INFO ====
+Job ID: 49110394
+Running on node: gypsum-gpu001
+Allocated GPUs: 0,1,2,3
+Current working dir: /project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/sdoh-mad-baselines
+==================
+==== ENV INFO ====
+Python 3.12.3
+Name: torch
+Version: 2.2.2+cu121
+Name: transformers
+Version: 4.57.0
+Fri Nov 21 16:39:17 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.195.03             Driver Version: 570.195.03     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla M40 24GB                 On  |   00000000:02:00.0 Off |                    0 |
+| N/A   34C    P8             17W /  250W |       0MiB /  23040MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  Tesla M40 24GB                 On  |   00000000:03:00.0 Off |                    0 |
+| N/A   34C    P8             16W /  250W |       0MiB /  23040MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   2  Tesla M40 24GB                 On  |   00000000:81:00.0 Off |                    0 |
+| N/A   32C    P8             16W /  250W |       0MiB /  23040MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   3  Tesla M40 24GB                 On  |   00000000:82:00.0 Off |                    0 |
+| N/A   32C    P8             18W /  250W |       0MiB /  23040MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+==================
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/sdoh-mad-baselines/workflows/grpo_tf/train.py", line 6, in <module>
+    from .rollout import rollout_dataset
+  File "/project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/sdoh-mad-baselines/workflows/grpo_tf/rollout.py", line 4, in <module>
+    from .llm_vllm import ZeroShotPolicyVLLM as ZeroShotPolicy
+  File "/project/pi_hongyu_umass_edu/zonghai/sdoh_agentic/sdoh-mad-baselines/workflows/grpo_tf/llm_vllm.py", line 1, in <module>
+    from vllm import LLM, SamplingParams
+ModuleNotFoundError: No module named 'vllm'

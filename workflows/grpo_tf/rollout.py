@@ -1,10 +1,10 @@
 import asyncio, json, os, time
 from tqdm import tqdm
-from .llm import ZeroShotPolicy
-
+#from .llm import ZeroShotPolicy
+from .llm_vllm import ZeroShotPolicyVLLM as ZeroShotPolicy
+import torch
 
 def load_rollouts(path):
-    """Load saved rollouts if they exist."""
     if not os.path.exists(path):
         return []
     with open(path, "r", encoding="utf-8") as f:
@@ -12,10 +12,8 @@ def load_rollouts(path):
 
 
 def save_rollouts(rows, path):
-    """Save minimal rollout info to disk (compact JSONL)."""
     with open(path, "w", encoding="utf-8") as f:
         for r in rows:
-            # only keep the essential info
             f.write(json.dumps({
                 "runid": r.get("runid"),
                 "response": r.get("response", ""),
@@ -38,42 +36,59 @@ async def rollout_dataset(
 ):
     """Run model rollouts asynchronously and record rewards."""
 
-    #  Remove unused `problem` field check
     if not rollouts:
         rollouts = [{"runid": i, **d} for i, d in enumerate(data)]
         save_rollouts(rollouts, rollout_filename)
 
-    # queue up samples that need responses
     q = asyncio.Queue()
     for r in rollouts:
         if "response" not in r or not r["response"]:
             await q.put(r)
 
     pbar = tqdm(total=q.qsize(), desc="Rollouts")
+
+    # # === MULTI-GPU LOGIC START ===
+    # num_gpus = torch.cuda.device_count()
+    # device_ids = [f"cuda:{i}" for i in range(num_gpus)]
+    # print(f"Detected {num_gpus} GPUs :- {device_ids}")
+
+    # policies = {d: ZeroShotPolicy(model_path=model_path, device=d) for d in device_ids}
     policy = ZeroShotPolicy(model_path=model_path)
 
+    # === MULTI-GPU LOGIC END ===
+
     async def worker(wid):
+        # device = device_ids[wid % len(device_ids)]
+        # policy = policies[device]
+        # print(f"[Worker {wid}] running on {device}")
+        policy_local = policy
+
+
         while not q.empty():
             sample = await q.get()
             start = time.time()
             try:
                 prompt = sample["prompt"]
-                # run generation in thread to avoid blocking
-                coro = asyncio.to_thread(
-                    policy.generate,
-                    prompt,
-                    max_new_tokens=max_tokens,
-                    temperature=temperature,
-                )
-                output = await asyncio.wait_for(coro, timeout=600)
 
-                # compute reward
+                # coro = asyncio.to_thread(
+                #     policy.generate,
+                #     prompt,
+                #     max_new_tokens=max_tokens,
+                #     temperature=temperature,
+                # )
+                # output = await asyncio.wait_for(coro, timeout=600)
+
+                output = await asyncio.to_thread( 
+                        policy_local.generate,
+                        prompt,
+                        max_tokens,
+                        temperature,)
+
                 sample["response"] = output
                 sample["reward"] = verify_func(sample, sample["groundtruth"])
                 sample["rollout_time"] = time.time() - start
-                
                 pred_label = sample.get("predicted_label", "")
-                # keep memory light — only store small dicts
+
                 rollouts[sample["runid"]] = {
                     "runid": sample["runid"],
                     "response": sample["response"],
@@ -82,7 +97,6 @@ async def rollout_dataset(
                     "groundtruth": sample.get("groundtruth", ""),
                     "rollout_time": sample["rollout_time"]
                 }
-
                 save_rollouts(rollouts, rollout_filename)
                 pbar.update(1)
 
@@ -97,11 +111,9 @@ async def rollout_dataset(
                 }
                 save_rollouts(rollouts, rollout_filename)
                 pbar.update(1)
-
             finally:
                 q.task_done()
 
-    # run async workers
     workers = [asyncio.create_task(worker(i)) for i in range(rollout_concurrency)]
     await q.join()
     for w in workers:

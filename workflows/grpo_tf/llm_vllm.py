@@ -1,11 +1,14 @@
+import os
 from vllm import LLM, SamplingParams
 
 class ZeroShotPolicyVLLM:
     def __init__(self, model_path: str):
+        tp = int(os.getenv("VLLM_TP", "1"))
         self.llm = LLM(
             model=model_path,
             dtype="float16",
-            tensor_parallel_size=1  # or torch.cuda.device_count()
+            #tensor_parallel_size=1  # or torch.cuda.device_count(),
+            tensor_parallel_size=tp
         )
 
     def generate(self, prompt: str,

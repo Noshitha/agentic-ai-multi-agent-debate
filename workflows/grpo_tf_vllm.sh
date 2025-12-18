@@ -19,7 +19,6 @@ else
 fi
 
 export VLLM_WORKER_MULTIPROCESSING_METHOD=spawn
-export tp=4
 export VLLM_TP=4
 
 echo "==== JOB INFO ===="
@@ -49,7 +48,7 @@ python -m grpo_tf.train \
   --grpo_n 2 \
   --temperature 0.7 \
   --max_tokens 256 \
-  --rollout_concurrency 6
+  --rollout_concurrency 2
 
 END_TS=$(date +%s)
 echo "TOTAL_SECONDS=$((END_TS - START_TS))"

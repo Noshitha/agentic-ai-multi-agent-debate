@@ -1,0 +1,4 @@
+[
+  "Correct classifications tend to explicitly align temporal language (e.g., 'used to', 'previously') with the correct SDOH label.",
+  "Incorrect answers frequently ignore negation or temporal qualifiers such as 'denies', 'no history of', or 'previous'."
+]

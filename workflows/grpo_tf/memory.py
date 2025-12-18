@@ -3,46 +3,34 @@ from sentence_transformers import SentenceTransformer
 import numpy as np
 
 class RAGMemory:
-    """
-    Reward-aware Retrieval-Augmented Memory for Training-Free GRPO.
-    - Stores (text, embedding, reward)
-    - Filters low-reward experiences
-    - Avoids duplicates
-    - Retrieves top-k relevant high-quality memories
-    """
     def __init__(self, model_name="sentence-transformers/all-MiniLM-L6-v2", reward_threshold=0.5):
         self.encoder = SentenceTransformer(model_name)
         self.memory = []
         self.reward_threshold = reward_threshold
 
-    def add(self, text: str, reward: float):
-        """Add new experience if reward is good and not duplicate."""
-        if reward < self.reward_threshold:
-            return  # discard low-quality experiences
-        
-        # prevent near-duplicates
-        if any(text.strip() == m["text"].strip() for m in self.memory):
-            return
+    def add_experiences(self, texts, reward=1.0):
+        """
+        texts: list of summarized experience strings
+        """
+        added = 0
+        for text in texts:
+            if any(text.strip() == m["text"].strip() for m in self.memory):
+                continue
 
-        # encode first, then normalize
-        emb = self.encoder.encode(text)
-        emb = np.array(emb)
-        emb = emb / np.linalg.norm(emb)
-        self.memory.append({"text": text, "embedding": emb, "reward": reward})
+            emb = self.encoder.encode(text, normalize_embeddings=True)
+            self.memory.append({
+                "text": text,
+                "embedding": emb,
+                "reward": reward
+            })
+            added += 1
+        return added
 
-    def retrieve(self, query: str, k: int = 3):
-        """Retrieve top-k experiences filtered by reward."""
+    def retrieve(self, query, k=3):
         if not self.memory:
             return []
 
-        # keep only good experiences
-        high_quality = [m for m in self.memory if m["reward"] >= self.reward_threshold]
-        if not high_quality:
-            return []
-
         q_emb = self.encoder.encode(query, normalize_embeddings=True)
-        sims = np.array([np.dot(q_emb, m["embedding"]) for m in high_quality])
-
-        # top-k similarity indices
-        topk_idx = sims.argsort()[-k:][::-1]
-        return [high_quality[i]["text"] for i in topk_idx]
+        sims = [np.dot(q_emb, m["embedding"]) for m in self.memory]
+        topk = sorted(range(len(sims)), key=lambda i: sims[i], reverse=True)[:k]
+        return [self.memory[i]["text"] for i in topk]
